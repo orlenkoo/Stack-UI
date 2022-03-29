@@ -1,0 +1,37 @@
+<div class="card {{stack?.theme}}" [style.background]="background ?? null">
+    <div class="card_header row">
+        <div class="brand_name column no-flex">
+            <p class="brand_empty-logo rubik-font" *ngIf="!stack?.brandImageUrl; else logo">YOUR LOGO</p>
+            <ng-template #logo>
+                <img [src]="stack?.brandImageUrl" alt="Stack Main Logo">
+            </ng-template>
+
+        </div>
+        <div class="stack_logo column no-flex">
+            <img src="/assets/imgs/stac_bot_light.png" alt="Stack Logo">
+        </div>
+    </div>
+    <div class="basic_info pills" *ngIf="!stack?.completed">
+        <div class="pill amount">{{stack?.discountAmount | currency : 'USD' : 'symbol-narrow' : '1.0-0'}}</div>
+        <div class="pill duration">
+            <img [src]="timeIcon" alt="duration" /> {{stack?.estimatedTime}}min
+        </div>
+    </div>
+    <div class="saved_counter rubik-font" *ngIf="stack?.completed">
+        <div class="message">You saved:</div>
+        <div class="amount">{{0 | currency : 'USD' : 'symbol-narrow' : '1.0-0'}}</div>
+    </div>
+    <div class="stack_card_description" *ngIf="!stack?.completed">
+        <div class="title">{{stack?.introduction?.title}}</div>
+        <div class="desc">{{stack?.introduction?.description}}</div>
+    </div>
+    <div class="disclaimer" *ngIf="!stack?.completed">
+        <div class="title">Information we require</div>
+        <div class="info pills" *ngIf="stack?.infoRequired">
+            <div class="pill" *ngFor="let pill of stack.infoRequired">{{pill}}</div>
+        </div>
+    </div>
+    <div class="action">
+        <button class="rubik-font" *ngIf="!stack.completed">Start</button>
+    </div>
+</div>

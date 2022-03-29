@@ -1,0 +1,153 @@
+@import "/src/assets/styles/variables.scss";
+@import "/src/assets/styles/fonts.scss";
+
+:host {
+    * {
+        box-sizing: border-box;
+        position: relative;
+    }
+    .row {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .column {
+            flex: 1 100%;
+            img {
+                vertical-align: middle;
+                max-height: 100%;
+                max-width: 100%;
+            }
+            &.no-flex {
+                flex: none;
+            }
+        }
+    }
+}
+.card {
+    width: 217px;
+    height: 330px;
+    border-radius: 20px;
+    overflow: hidden;
+    color: $white;
+    box-shadow: 2px 3px 15px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    &.bondi_blue {
+        background: linear-gradient(156.6deg, #395a82 0%, #4789ba 49.48%, #4fcaff 100%);
+    }
+    &.surry_sunset {
+        background: linear-gradient(156.6deg, #cd5e6d 0%, #ffb164 100%);
+    }
+    &.verry_berry {
+        background: linear-gradient(157.31deg, #1e2640 0%, #654572 0.01%, #ab5b89 50.7%, #ff7e8e 102.47%);
+    }
+    .card_header {
+        margin: 20px 20px 16px;
+        justify-content: start;
+        .brand_empty-logo {
+            margin: 0;
+            font-weight: bold;
+        }
+        .brand_name {
+            width: 100px;
+            height: 20px;
+        }
+        .stack_logo {
+            margin-left: 49px;
+            img {
+                width: 27px;
+                height: 26px;
+            }
+        }
+    }
+    .basic_info {
+        margin: 0px 20px 24px;
+        .duration {
+            img {
+                position: relative;
+                top: 1px;
+            }
+        }
+    }
+    .saved_counter {
+        text-align: center;
+        margin-top: 8px;
+        margin-bottom: 22px;
+        .message {
+            font-size: 14px;
+            font-weight: 700;
+        }
+        .amount {
+            font-weight: 700;
+            font-size: 48px;
+        }
+    }
+    .pills {
+        .pill {
+            display: inline-block;
+            margin-right: 6px;
+            border-radius: 5px;
+            background-color: rgba($color: #ffffff, $alpha: 0.3);
+            padding: 5px;
+            font-weight: 700;
+            font-size: 16px;
+        }
+    }
+    .stack_card_description {
+        margin: 0px 20px 20px;
+        min-height: 50px;
+        &.stack_completed {
+            text-align: center;
+        }
+        .title {
+            font-weight: 700;
+            font-size: 14px;
+        }
+        .desc {
+            font-weight: 400;
+            font-size: 12px;
+        }
+    }
+    .disclaimer {
+        padding: 0px 18px;
+        .title {
+            font-weight: 700;
+            font-size: 12px;
+        }
+        .info {
+            margin-top: 1.5px;
+            &.pills {
+                .pill {
+                    border-radius: 20px;
+                    font-size: 12px;
+                    padding: 3px 6px;
+                    margin-right: 3.5px;
+                }
+            }
+        }
+    }
+    .action {
+        position: absolute;
+        width: 100%;
+        bottom: 0;
+        button {
+            background-color: rgba(255, 255, 255, 0.2);
+            border: none;
+            padding: 18px;
+            width: 100%;
+            font-weight: 700;
+            font-size: 20px;
+            color: $white;
+            text-transform: uppercase;
+            cursor: pointer;
+            &.promo_code {
+                padding: 13px;
+            }
+            .code_hint {
+                font-size: 12px;
+                font-weight: 400;
+                text-transform: none;
+                display: block;
+            }
+        }
+    }
+}

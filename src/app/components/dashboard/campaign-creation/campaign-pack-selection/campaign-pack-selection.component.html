@@ -1,0 +1,28 @@
+<div class="container__header">
+    <app-stack-progress-bar width='400px' barBorderRadius='20px 0 0 0' containerBorderRadius="20px 20px 0 0">
+    </app-stack-progress-bar>
+    <div class="container__header-label mat-elevation-z1">
+        <div class="container__header-display">
+            <h2 class="container__main-label rubik-font">Select you Packs</h2>
+            <p class="container__secondary-label rubik-font">
+                Select the packs you wish to run, choose the discount your willing to offer and cap the number of
+                responses
+                per month.
+            </p>
+        </div>
+        <div class="container__header-action">
+            <app-stack-button class="container__btn roboto-font" type="text-btn" label="Continue"
+                (click)="onNext.emit()">
+            </app-stack-button>
+            <div class="container__header-amount-container">
+                <p class="container__header-amount">${{value}}</p>
+                <p class="container__header-amount-description">Max discount per customer</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <app-campaign-pack *ngFor="let pack of packs; let i = index; trackBy: trackByItems" [pack]=" pack"
+        (packChange)="onPackChange($event, i)" [(toggledPack)]="toggledPack">
+    </app-campaign-pack>
+</div>

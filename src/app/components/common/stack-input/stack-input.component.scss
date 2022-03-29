@@ -1,0 +1,56 @@
+@import "/src/assets/styles/variables.scss";
+
+.input-with-label {
+  position: relative;
+  color: $navyPrimary;
+  margin-bottom: 21px;
+  input {
+    width: 100%;
+    padding: 14px;
+    border-radius: 5px;
+    font-size: 16px;
+    border: 2px solid $mute-grey;
+    outline: none;
+    &.error {
+      border: 2px solid $pinkPrimary;
+    }
+    + label {
+      position: absolute;
+      top: 16px;
+      left: 14px;
+      font-size: 16px;
+      transition: all 200ms;
+      color: $black50;
+      cursor: text;
+      z-index: 0;
+    }
+    &:focus,
+    &.ng-dirty,
+    &.valid {
+      border: 2px solid $navyPrimary;
+      + label {
+        top: -6px;
+        font-size: 12px;
+        background-color: $white;
+        padding: 0 2px;
+        color: $black;
+      }
+    }
+  }
+  .icon {
+    position: absolute;
+    right: 14px;
+    top: 14px;
+    cursor: pointer;
+    z-index: 99999;
+  }
+  .hint {
+    font-size: 12px;
+    color: $navyPrimary;
+    padding-left: 16px;
+    margin-top: 5px;
+    &.error {
+      color: $pinkPrimary;
+    }
+  }
+}

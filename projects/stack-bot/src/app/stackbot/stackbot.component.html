@@ -1,0 +1,37 @@
+<div class="stack_bot theme--{{theme}} {{themeColor}}" [class.hide]="botHide">
+    <div class="bot_contents rubik-font" [class.opnen_modal]="isStackBrowserOpen" (click)="toggleStackBrowser()" [class.hasContent]="!!botContent && !isStackBrowserOpen">
+        <div class="logo content">
+            <img [src]="fetchBotIcon()" alt="Open Stack Browser" *ngIf="!isStackBrowserOpen && !botLoader?.isLoaderActive">
+            <img [src]="fetchCrossIcon()" alt="Close Stack Browser" class="cross_icon" *ngIf="isStackBrowserOpen && !botLoader?.isLoaderActive">
+            <app-loader #botloader></app-loader>
+        </div>
+        <div class="bot_text content" *ngIf="botContent" [class.hideContent]="isStackBrowserOpen">
+            {{botContent}}
+        </div>
+    </div>
+    <div class="vouchercode rubik-font theme--{{theme}} {{themeColor}}" *ngIf="vouchercode" (click)="copyCoupon()">
+        <img [src]="fetchClipboardIcon()" alt="Copy Voucher code"/>
+        <span class="code">
+            {{vouchercode}}
+            <div *ngIf="codeCopied" class="copy_succesfull">Copied to clipboard</div>
+        </span>
+    </div>
+    <div class="star_feedback rubik-font theme--{{theme}} {{themeColor}}" *ngIf="showFeedback">
+        <div class="feedback_text">Rate your Stack experience</div>
+        <div class="stars_wrapper">
+            <span class="star" *ngFor="let option of feedbackOptions" (click)="activateStar(option)">
+                <img [src]="fetchStarIcon(option.active)" alt="{{option.id}} Star">
+            </span>
+        </div>
+    </div>
+    <div class="bot_msgs rubik-font">
+        <div class="msg" *ngFor="let msg of botMsgs">
+            <div class="msg_title">{{msg.title}}</div>
+            <div class="msg_body">{{msg.body}}</div>
+        </div>
+    </div>
+</div>
+<app-stackbrowser
+    *ngIf="isStackBrowserOpen"
+    (closeModal)="toggleStackBrowser()"
+    (voucherGenerated)="recordVoucherCode($event)"></app-stackbrowser>

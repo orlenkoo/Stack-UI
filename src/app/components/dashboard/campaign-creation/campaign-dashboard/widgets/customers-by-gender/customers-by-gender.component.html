@@ -1,0 +1,15 @@
+<div style="width: 100%;">
+    <div class="header-div">
+        <div class="rubik-font title">Customers by Gender</div>
+        <div class="rubik-font subtitle">Breakdown by Gender</div>
+    </div>
+
+    <div class="rubik-font top-scorer">MALE</div>
+
+    <div class="chart-div">
+        <canvas baseChart [data]="pieChartData" [labels]="pieChartLabels" [chartType]="pieChartType"
+            [options]="pieChartOptions" [plugins]="pieChartPlugins" [legend]="pieChartLegend">
+        </canvas>
+    </div>
+
+</div>

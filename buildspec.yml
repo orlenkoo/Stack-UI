@@ -1,0 +1,27 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 14
+    on-failure: ABORT
+    commands:
+      - npm install
+  build:
+    on-failure: ABORT
+    commands:
+      - npm run build
+  post_build:
+    on-failure: ABORT
+    commands:
+      - aws s3 sync dist/stack-ui s3://${STACK_UI_WEB_BUCKET} --delete
+      - aws s3 sync dist/stack-bot s3://${STACK_BOT_WEB_BUCKET} --delete
+
+artifacts:
+  files:
+    - '**/*'
+  base-directory: 'dist'
+
+cache:
+  paths:
+    - node_modules

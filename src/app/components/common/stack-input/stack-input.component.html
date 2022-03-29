@@ -1,0 +1,32 @@
+<div class="input-with-label" >
+    <input [type]="type"
+        [id]="id"
+        class="roboto-font"
+        autocomplete="off"
+        [ngClass]="{
+            'error': !control.valid && control.touched
+        }"
+        (click)="handleClick()"
+        (focus)="handleFocus()"
+        (blur)="handleBlur()"
+        [formControl]="control"
+        *ngIf="!useMask">
+    <input [type]="type"
+        [id]="id"
+        class="roboto-font valid"
+        autocomplete="off"
+        [ngClass]="{
+            'error': !control.valid && control.touched
+        }"
+        (click)="handleClick()"
+        (focus)="handleFocus()"
+        (blur)="handleBlur()"
+        [formControl]="control"
+        appPhoneMask
+        [defaultExtension]="'61'"
+        ngDefaultControl
+        *ngIf="useMask">
+    <label [for]="id">{{label}}</label>
+    <div class="hint" *ngIf="hint && validation.valid">{{hint}}</div>
+    <div class="hint error" *ngIf="!validation.valid">{{validation.msg}}</div>
+</div>

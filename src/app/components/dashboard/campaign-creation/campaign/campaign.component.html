@@ -1,0 +1,21 @@
+<div *ngIf="campaigns.length == 0" style="display: flex;flex-direction: column; justify-content: center;">
+<div>
+    <app-stack-list style="width: 300px; left: 39%;" [limit]="2"></app-stack-list>
+</div>
+<div class="container">
+    <h2 class="container__main-label rubik-font">Insights that pack a punch</h2>
+    <p class="container__secondary-label rubik-font">Now that Stack is all setup on your store, start gaining useful
+        insights from your customers by launching your first Packs. Whether you looking to learn more about who’s
+        shopping, calculate NPS or hear about your compeition our expertly crafted micro-surveys will get you well on
+        your way.</p>
+    <app-stack-button class="container__btn roboto-font" type="text-btn" label="Start Launching Packs"
+        (click)="open = true">
+    </app-stack-button>
+</div>
+
+<app-campaign-create *ngIf="open" [(open)]="open" (campaignCreatedEvent)="campaignCreated()"></app-campaign-create>
+</div>
+
+<div *ngIf="campaigns.length > 0" style="width: 95%; margin: auto; margin-top: 0;">
+    <app-campaign-dashboard></app-campaign-dashboard>
+</div>

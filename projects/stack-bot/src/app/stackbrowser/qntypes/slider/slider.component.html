@@ -1,0 +1,11 @@
+<div class="hint rubik-font">Slide to rate</div>
+<div class="slider-wrapper">
+    <div class="qn_for_slider">{{question}}</div>
+    <label for="slider">{{selectedLabel}}</label>
+    <div class="slider_holder">
+        <input type="range" name="slider" class="slider {{theme + '_button'}}" min="1" max="{{options.length}}" [value]="value" (input)="inputChanged($event)" #slider>
+        <div class="dot_wrapper">
+            <span *ngFor="let opt of options; let i = index" class="dot" [style.left]="getMargin(i, options)" [class.hide]="i+1 === value"></span>
+        </div>
+    </div>
+</div>

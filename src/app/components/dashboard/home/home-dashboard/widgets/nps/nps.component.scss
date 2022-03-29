@@ -1,0 +1,56 @@
+.title {
+    font-weight: 700;
+    font-size: 16px;
+    color: #1E2640;
+  }
+  
+  .subtitle {
+    font-weight: 400;
+    font-size: 12px;
+    font-style: italic;
+    color: #1E2640;
+  }
+  
+  .content {
+    font-weight: 700;
+    font-size: 96px;
+    color: #1E2640;
+    text-align: center;
+    margin-top: 15px;
+  }
+  
+  .content-change {
+    font-weight: 700;
+    font-size: 16px;
+    text-align: center;
+    margin-top: 5px;
+    color: #23BDFF;
+  }
+  
+  .content-desc {
+    font-weight: 400;
+    font-size: 10px;
+    color: #1E2640;
+    text-align: center;
+    margin-top: 5px;
+  }
+
+  .chart-div {
+    width: 99%;
+    height: 180px;
+    margin-top: 10px;
+}
+
+.graph-div {
+    width: 80%;
+    float: left;
+}
+
+.score-div {
+    width: 20%;
+    float: right;
+}
+
+.score-div .title, .score-div .subtitle {
+    text-align: center;
+}

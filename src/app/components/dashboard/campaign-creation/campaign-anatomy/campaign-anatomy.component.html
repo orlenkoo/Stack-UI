@@ -1,0 +1,25 @@
+<app-stack-progress-bar width='20px' barBorderRadius='20px 0 0 0' containerBorderRadius="20px 20px 0 0">
+</app-stack-progress-bar>
+<div class="container">
+    <div class="container__details">
+        <div class="container__logo">
+            <img class="container__logo" src="/assets/imgs/StackLogo.png" alt="">
+        </div>
+        <h2 class="container__main-label rubik-font">Pack Anatomy</h2>
+        <p class="rubik-font container__secondary-label container__label--bold">The front of each pack provides a quick
+            overview of its contents to the participant
+        </p>
+        <p class="rubik-font container__secondary-label">
+            Each pack displays the discount value earned upon completion, the estimated time to complete, a descrition
+            of the survey questions, and any personal information we capture to support segmentation of responses.
+        </p>
+        <div class="container__footer">
+            <app-stack-button class="container__btn container__btn--primary roboto-font" type="text-btn"
+                label="Continue" (click)="onNext.emit()">
+            </app-stack-button>
+        </div>
+    </div>
+    <div class="container__packs">
+        <app-stack-list [limit]="1"></app-stack-list>
+    </div>
+</div>

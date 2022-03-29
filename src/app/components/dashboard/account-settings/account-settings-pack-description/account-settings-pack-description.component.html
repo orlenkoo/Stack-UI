@@ -1,0 +1,27 @@
+<app-stack-progress-bar width='360px' barBorderRadius='20px 0 0 0' containerBorderRadius="20px 20px 0 0">
+</app-stack-progress-bar>
+<div class="container">
+    <div class="container__details">
+        <div class="container__logo">
+            <img class="container__logo" src="/assets/imgs/StackLogo.png" alt="">
+        </div>
+        <h2 class="container__main-label rubik-font">Un-missable</h2>
+        <div class="container__sub-description">
+            <p class="rubik-font container__secondary-label container__label--bold">
+                Call to action updates as customers progress to checkout
+            </p>
+            <p class="rubik-font container__secondary-label">
+                As customers perform different actions on your store ie. view a product, add to cart, view cart then
+                different packs become avaialbe to them - making the reward even greater and engagement stronger.
+            </p>
+        </div>
+        <div class="container__footer">
+            <app-stack-button class="container__btn container__btn--primary roboto-font" type="text-btn"
+                label="Continue" (click)="onNext.emit()">
+            </app-stack-button>
+        </div>
+    </div>
+    <div class="container__packs">
+        <div class="container__empty"></div>
+    </div>
+</div>

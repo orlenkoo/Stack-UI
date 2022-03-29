@@ -1,0 +1,21 @@
+<div>
+    <div class="sign-up-content rubik-font">
+        <div class="nav-label">
+            <a routerLink="/signup/start">&lt; Back</a>
+        </div>
+        <div class="main-label">
+            Tell us about your business
+        </div>
+        <div class="form-label">
+            Business Information
+        </div>
+        <div class="form roboto-font">
+            <app-stack-input id="business-name" type="text" label="Business Name" [control]="businessNameControl"></app-stack-input>
+            <app-stack-select id="industry-name" label="What Industry are you in?" [options]="industryOptions" [(ngModel)]="industryName" ngDefaultControl></app-stack-select>
+            <app-stack-input id="shopify-url" type="text" label="Shopify URL" [control]="shopifyUrlControl"></app-stack-input>
+        </div>
+        <div class="buttonholder">
+            <app-stack-button type="primary" label="Continue" (buttonClicked)="onSubmit()"></app-stack-button>
+        </div>
+    </div>
+</div>

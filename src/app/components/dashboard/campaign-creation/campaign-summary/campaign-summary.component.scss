@@ -1,0 +1,84 @@
+@import "/src/assets/styles/variables.scss";
+
+.container {
+    padding: 70px 44.54px 101px 70px;
+    display: flex;
+    overflow: hidden;
+    position: relative;
+
+    &__details {
+        display: inline-block;
+        width: 365px;
+        flex: 0 0 auto;
+    }
+
+    &__logo {
+        width: 155px;
+        height: 50px;
+    }
+
+    &__packs {
+        display: inline-block;
+        flex: 0 1 auto;
+        width: 400px;
+        position: absolute;
+        top: 70px;
+        right: 0;
+    }
+
+    &__main-label {
+        font-weight: bold;
+        font-size: 48px;
+        line-height: 57px;
+        color: $navyPrimary;
+        margin: 30px 0 20px;
+    }
+
+    &__secondary-label {
+        font-size: 18px;
+        line-height: 21px;
+    }
+
+    &__label--bold {
+        font-weight: bold;
+        margin: 0;
+    }
+
+    &__footer {
+        margin-top: 50px;
+    }
+
+    &__theme-label {
+        margin: 18px 0;
+    }
+
+    &__label-logo {
+        margin-top: 32px;
+    }
+
+    &__file-selection {
+        width: 322px;
+        height: 46px;
+        background: #f1efe8;
+        margin-top: 13px;
+        display: inline-block;
+    }
+
+    &__btn {
+        display: inline-block;
+
+        &--primary {
+            height: 50px;
+            width: 100px;
+        }
+
+        &--secondary {
+            height: 50px;
+            width: 178px;
+        }
+    }
+}
+
+.hidden {
+    display: none;
+}

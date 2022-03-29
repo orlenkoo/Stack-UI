@@ -1,0 +1,7 @@
+<button class="rubik-font" [ngClass]="type" [disabled]="buttonDisabled" (click)="onClick()">
+    <span>
+        <img *ngIf="imageSrc" [src]="imageSrc" alt="Image Not Found" [ngClass]="alignment">
+        <span>{{label}}</span>
+    </span>
+    
+</button>

@@ -1,0 +1,139 @@
+<div class="stackbrowser_overlay">
+    <div class="close" (click) = "emitCloseModal()">+</div>
+    <div class="stackbrowser_modal rubik-font" [class.qns_active]="stackSelected">
+        <div class="modal_header row" [class.qns_active]="stackSelected">
+            <div class="logo column no-flex">
+                <img src="{{baseUrl}}/bot/browser/stack_main_logo.png" alt="Stack Logo">
+            </div>
+            <div class="saved_counter column no-flex">
+                <div class="counter_pill row">
+                    <div class="logo_img column no-flex row">
+                        <img src="{{baseUrl}}/bot/browser/coin.png" alt="Stack Main Logo" class="column no-flex">
+                        <div class="column no-flex" style="margin: 0px 8px 0px 0">Saved</div>
+                    </div>
+                    <div class="amount column">
+                        {{amountSaved | currency : 'USD' : 'symbol-narrow' : '1.0-0'}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal_body">
+            <!-- Default Modal Body -->
+            <div class="welcome_msg" *ngIf="!stackSelected">
+                <div class="title">Thanks in advance for your feedback!</div>
+                <div class="body">
+                    Complete the surveys available below and we’ll trade your two cents for up to <span class="bold">${{totalDiscountAvailable}} off your cart</span>.
+                </div>
+            </div>
+            <div class="stack_cards" *ngIf="!stackSelected" #cardsHolder>
+                <ng-container *ngFor="let card of dataStore.availableCampaigns; let i=index">
+                    <app-stackcard 
+                        swipe
+                        [stack]="card" 
+                        (click)="cardClicked(i)" 
+                        (selected)="processStack($event)"
+                        (next)="nextCard()"
+                        (previous)="previousCard()"
+                        #card 
+                    ></app-stackcard>
+                </ng-container>
+            </div>
+            <div class="sb_pagination" *ngIf="!stackSelected">
+                <div class="controls row">
+                    <div class="left chevron column no-flex row" [ngClass]="{'disabled': activeCard === 0}" (click)="previousCard()">
+                        <img src="{{baseUrl}}/bot/browser/chevron_left.png" alt="Previous Card">
+                    </div>
+                    <div class="row vertical column">
+                        <div class="pages_text">
+                            Pack {{activeCard + 1}} of {{dataStore.availableCampaigns.length}}
+                        </div>
+                        <div class="pages_indicator row">
+                            <div class="indicator column no-flex" *ngFor="let card of dataStore.availableCampaigns; let i=index" (click)="cardClicked(i)" [ngClass]="{'active': i === activeCard}"></div>
+                        </div>
+                    </div>
+                    <div class="right chevron column no-flex row" [ngClass]="{'disabled': activeCard === (dataStore.availableCampaigns.length-1)}" (click)="nextCard()">
+                        <img src="{{baseUrl}}/bot/browser/chevron_right.png" alt="Next Card">
+                    </div>
+                </div>
+            </div>
+            <div class="success_confetti">
+                <div id="svg"></div>
+            </div>
+
+            <!-- Modal Body with Qns -->
+            <div class="qns_container" *ngIf="stackSelected">
+                <app-loader #questionloader></app-loader>
+                <div class="question_wrapper" *ngIf="!qnLoader?.isLoaderActive">
+                    <div class="qn_no">Question {{qnIndex+1}}</div>
+                    <div class="qn_title">{{stackTitle}}</div>
+                    <div class="qn_desc">{{activeQnDesc}}</div>
+                </div>
+                <ng-container *ngIf="!qnLoader?.isLoaderActive">
+                    <ng-container [ngSwitch]="activeQn">
+                        <ng-container *ngSwitchCase="QuestionTypeEnum.MULTI_CHOICE">
+                            <app-multichoice class="qn_wrapper" [id]="availableQns[qnIndex]" [options]="multiChoiceOptions" (answered)="recordAnswer($event)"></app-multichoice>
+                        </ng-container>
+                        <ng-container *ngSwitchCase="QuestionTypeEnum.MULTI_SELECT">
+                            <app-multichoice [multi]="true" [id]="availableQns[qnIndex]" class="qn_wrapper" [options]="multiSelectOptions" (answered)="recordAnswer($event)" (error)="recordErrorInQn()"></app-multichoice>
+                        </ng-container>
+                        <ng-container *ngSwitchCase="QuestionTypeEnum.RATING_AND_WHY">
+                            <app-ratingandwhy class="qn_wrapper" [id]="availableQns[qnIndex]" (answered)="recordAnswer($event)" (error)="recordErrorInQn()"></app-ratingandwhy>
+                        </ng-container>
+                        <ng-container *ngSwitchCase="QuestionTypeEnum.FREE_TEXT">
+                            <app-freetext class="qn_wrapper" [id]="availableQns[qnIndex]" (answered)="recordAnswer($event)" (error)="recordErrorInQn()"></app-freetext>
+                        </ng-container>
+                        <ng-container *ngSwitchCase="QuestionTypeEnum.AB_POLL">
+                            <app-abpoll class="qn_wrapper" [id]="availableQns[qnIndex]" [options]="abpollOptions" (answered)="recordAnswer($event)"></app-abpoll>
+                        </ng-container>
+                        <ng-container *ngSwitchCase="QuestionTypeEnum.SLIDER">
+                            <app-slider class="qn_wrapper" [id]="availableQns[qnIndex]" [question] = "sliderQuestion" [options]="sliderOptions" (answered)="recordAnswer($event)"></app-slider>
+                        </ng-container>
+                        <ng-container *ngSwitchCase="QuestionTypeEnum.ASL">
+                            <app-asl class="qn_wrapper" [id]="availableQns[qnIndex]" (answered)="recordAnswer($event)" (error)="recordErrorInQn()"></app-asl>
+                        </ng-container>
+                    </ng-container>
+                </ng-container>
+                <div class="nav_wrapper row">
+                    <div class="back_btn column">
+                        <button (click)="moveToPreviousQn()" [disabled]="disableBackBtn">
+                            <img src="{{baseUrl}}/bot/browser/chevron_left.png" alt="Go to previous question">
+                        </button>
+                    </div>
+                    <div class="next_btn column no-flex" *ngIf="!lastQnReached">
+                        <button class="rubik-font  {{dataStore.sessionData.theme.toLowerCase()}}" (click)="moveToNextQn()" [disabled]="disableContinueBtn">Continue</button>
+                    </div>
+                    <div class="submit_btn column no-flex" *ngIf="lastQnReached">
+                        <button class="rubik-font  {{dataStore.sessionData.theme.toLowerCase()}}" [disabled]="disableContinueBtn" (click)="submitAnswers()">Submit</button>
+                    </div>
+                </div>
+                <div class="action_bar row {{dataStore.sessionData.theme.toLowerCase()}}">
+                    <div class="control_section column no-flex">
+                        <div class="brand_row row">
+                            <div class="back_btn column no-flex">
+                                <button (click)="goBackToStack()">
+                                    <img src="{{baseUrl}}/bot/browser/back_icon.png" alt="Go back to select stacks">
+                                </button>
+                            </div>
+                            <div class="brand_logo column no-flex">
+                                <!-- <img [src]="brandLogo" alt="Brand Logo"> -->
+                            </div>
+                        </div>
+                        <div class="pagination_row">
+                            <div class="question_index">Question {{qnIndex + 1}} of {{availableQns.length}}</div>
+                            <div class="pagination_dashes">
+                                <div
+                                    class="dash"
+                                    *ngFor="let qn of availableQns; let i = index"
+                                    [class.active]="i <= qnIndex"
+                                    ></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="amount_saved column no-flex">
+                        <div class="amount_value">${{currentCampaignAmount}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

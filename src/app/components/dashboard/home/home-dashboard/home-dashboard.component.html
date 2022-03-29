@@ -1,0 +1,72 @@
+<div style="width: 100%;">
+    <h2 class="heading">Your Daily Summary</h2>
+    <mat-grid-list cols="3" rowHeight="260px" [gutterSize]="'25px'">
+        <mat-grid-tile colspan="2" class="mat-elevation-z5 widget">
+            <app-nps class="main-widget"></app-nps>
+        </mat-grid-tile>
+        <mat-grid-tile class="mat-elevation-z5 widget">
+            <app-question-answer class="main-widget" question="Why did you leave that score?"
+                questionDesc="Most Recent response" answer="-"></app-question-answer>
+        </mat-grid-tile>
+        <mat-grid-tile colspan="2" rowspan="2" class="live-data-table">
+            <div style="width: 100%;">
+                <h2 class="heading">Live Feed</h2>
+                <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" style="width: 100%">
+
+                    <ng-container matColumnDef="date">
+                        <th mat-header-cell *matHeaderCellDef> Date </th>
+                        <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="time">
+                        <th mat-header-cell *matHeaderCellDef> Time </th>
+                        <td mat-cell *matCellDef="let element"> {{element.time}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="packCompleted">
+                        <th mat-header-cell *matHeaderCellDef> Packs Completed </th>
+                        <td mat-cell *matCellDef="let element">{{element.packCompleted}}</td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="gender">
+                        <th mat-header-cell *matHeaderCellDef> Gender </th>
+                        <td mat-cell *matCellDef="let element"> {{element.gender}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="age">
+                        <th mat-header-cell *matHeaderCellDef> Age </th>
+                        <td mat-cell *matCellDef="let element"> {{element.age}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="location">
+                        <th mat-header-cell *matHeaderCellDef> Location </th>
+                        <td mat-cell *matCellDef="let element"> {{element.location}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="checkedOut">
+                        <th mat-header-cell *matHeaderCellDef> Checked Out </th>
+                        <td mat-cell *matCellDef="let element"> {{element.checkedOut}} </td>
+                    </ng-container>
+
+                    <tr class="mat-row" *matNoDataRow>
+                        <td class="mat-cell" colspan="9999">
+                            Waiting for first pack to be completed...
+                        </td>
+                    </tr>
+
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+            </div>
+        </mat-grid-tile>
+        <mat-grid-tile class="mat-elevation-z5 widget">
+            <app-question-answer class="main-widget" question="What's one thing you love most?"
+                questionDesc="Most Recent response" answer="-"></app-question-answer>
+        </mat-grid-tile>
+        <mat-grid-tile class="mat-elevation-z5 widget">
+            <app-question-answer class="main-widget" question="What's one thing for us to improve?"
+                questionDesc="Most Recent response" answer="-"></app-question-answer>
+        </mat-grid-tile>
+    </mat-grid-list>
+
+</div>

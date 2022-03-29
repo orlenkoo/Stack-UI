@@ -1,0 +1,54 @@
+@import "/src/assets/styles/variables.scss";
+@import "/src/assets/styles/fonts.scss";
+@import "/src/assets/styles/theme.scss";
+
+:host {
+  * {
+    box-sizing: border-box;
+    color: $navyPrimary;
+  }
+}
+
+.hint,
+.hint span {
+  font-weight: 400;
+  font-size: 12px;
+  color: #979797;
+  font-style: italic;
+  margin-bottom: 4px;
+}
+
+.answers_wrapper {
+  height: 254px;
+  margin-bottom: 20px;
+}
+
+.options {
+  .option {
+    width: 315px;
+    height: 44px;
+    display: grid;
+    place-items: center;
+    border-radius: 5px;
+    border: 1px solid $navyPrimary;
+    font-weight: 700;
+    font-size: 12px;
+    padding: 0 36px 0 21px;
+    margin-bottom: 4px;
+    cursor: pointer;
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+    &.active {
+      background: linear-gradient(
+        91.15deg,
+        #1e2640 0%,
+        #395a82 33.85%,
+        #4789ba 67.19%,
+        #4fcaff 100%
+      );
+      border: none;
+      color: $white;
+    }
+  }
+}

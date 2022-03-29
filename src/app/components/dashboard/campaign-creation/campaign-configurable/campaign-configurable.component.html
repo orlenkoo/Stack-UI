@@ -1,0 +1,27 @@
+<app-stack-progress-bar width='20px' barBorderRadius='20px 0 0 0' containerBorderRadius="20px 20px 0 0">
+</app-stack-progress-bar>
+<div class="container">
+    <div class="container__details">
+        <div class="container__logo">
+            <img class="container__logo" src="/assets/imgs/StackLogo.png" alt="">
+        </div>
+        <h2 class="container__main-label rubik-font">Configurable</h2>
+        <p class="rubik-font container__secondary-label container__label--bold">It’s up to you how much you’d like to
+            reward a customer for participating
+        </p>
+        <p class="rubik-font container__secondary-label">
+            We give you full control over the discount rewarded per response, as well as the total number of responses
+            you’d like recieve per month. This let’s you keep on top of your research budgeet.
+        </p>
+        <div class="container__footer">
+            <app-stack-button class="container__btn container__btn--primary roboto-font" type="text-btn"
+                label="Continue" (click)="onNext.emit()">
+            </app-stack-button>
+        </div>
+    </div>
+    <div class="container__packs">
+        <app-campaign-pack *ngFor="let pack of packs; let i = index" class="campaign-pack--displayed" [pack]="pack"
+            [toggledPack]="packs[0].packId">
+        </app-campaign-pack>
+    </div>
+</div>

@@ -1,0 +1,88 @@
+@import "/src/assets/styles/variables.scss";
+
+.container {
+    padding: 70px 44.54px 101px 70px;
+    display: flex;
+
+    &__logo {
+        width: 155px;
+        height: 50px;
+    }
+
+    &__header {
+        height: 216px;
+    }
+
+    &__details {
+        display: inline-block;
+        width: 365px;
+        flex: 0 0 auto;
+    }
+
+    &__packs {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        flex: 0 1 auto;
+        width: 100%;
+    }
+
+    &__stack-card {
+        transform: rotate(2.94deg);
+    }
+
+    &__main-label {
+        font-weight: bold;
+        font-size: 48px;
+        line-height: 57px;
+        color: $navyPrimary;
+        margin: 30px 0 20px;
+    }
+
+    &__secondary-label {
+        font-size: 18px;
+        line-height: 21px;
+    }
+
+    &__label--bold {
+        font-weight: bold;
+        margin: 0;
+    }
+
+    &__footer {
+        margin-top: 20px;
+    }
+
+    &__theme-label {
+        margin: 18px 0;
+    }
+
+    &__color-selection {
+        display: inline-block;
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        margin-right: 10px;
+    }
+
+    &__color--selected {
+        border: 2px solid #1e2640;
+        width: 30px;
+        height: 30px;
+    }
+
+    &__btn {
+        display: inline-block;
+
+        &--primary {
+            height: 50px;
+            width: 178px;
+        }
+
+        &--secondary {
+            height: 50px;
+            width: 100px;
+            margin-right: 20px;
+        }
+    }
+}

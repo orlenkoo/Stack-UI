@@ -1,0 +1,73 @@
+@import "/src/assets/styles/variables.scss";
+
+.container {
+    padding: 5px 35px 37px 72px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 240px);
+    grid-gap: 25px;
+    max-height: 325px;
+    overflow: auto;
+
+    &__header {
+        height: 216px;
+    }
+
+    &__header-label {
+        display: flex;
+        justify-content: space-between;
+        padding: 50px 66px 27px 72px;
+    }
+
+    &__main-label {
+        font-size: 48px;
+        line-height: 57px;
+        color: $navyPrimary;
+        margin: 0;
+    }
+
+    &__secondary-label {
+        font-size: 18px;
+        line-height: 21px;
+        color: $navyPrimary;
+        margin: 10px 0 0;
+    }
+
+    &__btn {
+        display: inline-block;
+        width: 178px;
+        height: 50px;
+    }
+
+    &__header- {
+        &action {
+            width: 178px;
+            margin-left: 78px;
+            flex: 0 0 auto;
+        }
+
+        &display {
+            flex: 0 1 auto;
+        }
+
+        &amount-container {
+            margin-top: 11px;
+            display: flex;
+            align-items: center;
+        }
+
+        &amount {
+            font-weight: bold;
+            font-size: 48px;
+            line-height: 57px;
+            margin: 0 8px 0 0;
+
+            &-description {
+                font-style: italic;
+                font-weight: normal;
+                font-size: 14px;
+                line-height: 17px;
+                margin: 0;
+            }
+        }
+    }
+}

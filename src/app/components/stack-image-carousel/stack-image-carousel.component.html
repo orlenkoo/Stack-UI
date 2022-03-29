@@ -1,0 +1,31 @@
+<div class="carousel-container">
+    <div class="img-holder" 
+        [class.fullsize]="!selectedImg.allowControlsAndExtras"
+        [class.transitionLeft]="fadeTransition">
+        <img src={{selectedImg.src}} alt={{selectedImg.alt}}>
+    </div>
+    <div class="text-info rubik-font" [class.transitionRight]="fadeTransition">
+        <div class="caption">{{selectedImg.caption}}</div>
+        <div class="subText">{{selectedImg.subText}}</div>
+    </div>
+    <div class="controls" *ngIf="selectedImg.allowControlsAndExtras">
+        <div class="dots">
+            <ng-container *ngFor="let img of imgArray; let i =index">
+                <div class="dot-container"
+                    (click)="paginationControls.goToPage(i)">
+                    <div class="dot" 
+                        *ngIf="img.allowControlsAndExtras"
+                        [class.active]="img.active"></div>
+                </div>
+            </ng-container>
+        </div>
+        <div class="chevron-controls">
+            <button (click)="paginationControls.previous()">
+                <img src="/assets/imgs/chevron.png" class="previous" alt="Previous Image">
+            </button>
+            <button (click)="paginationControls.next()">
+                <img src="/assets/imgs/chevron.png" alt="Next Image">
+            </button>
+        </div>
+    </div>
+</div>

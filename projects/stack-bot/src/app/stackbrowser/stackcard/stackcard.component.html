@@ -1,0 +1,43 @@
+<div class="card {{stack.theme}}">
+    <div class="card_header row">
+        <div class="brand_name column no-flex">
+            <img [src]="stack.brandImageUrl" alt="Stack Main Logo">
+        </div>
+        <div class="stack_logo column no-flex">
+            <img src="{{baseUrl}}/bot/browser/coin.png" alt="Stack Main Logo">
+        </div>
+    </div>
+    <div class="basic_info pills" *ngIf="!stack.completed">
+        <div class="pill amount">{{stack.amountToSave | currency : 'USD' : 'symbol-narrow' : '1.0-0'}}</div>
+        <div class="pill duration">
+            <img src="{{baseUrl}}/bot/browser/estimated_time.png" alt="duration" /> {{stack.durationForSurvey}}min
+        </div>
+    </div>
+    <div class="saved_counter rubik-font" *ngIf="stack.completed">
+        <div class="message">You saved:</div>
+        <div class="amount">{{stack.amountToSave | currency : 'USD' : 'symbol-narrow' : '1.0-0'}}</div>
+    </div>
+    <div class="stack_card_description" *ngIf="!stack.completed">
+        <div class="title">{{stack.cardTitle}}</div>
+        <div class="desc">{{stack.cardDescription}}</div>
+    </div>
+    <div class="stack_card_description stack_completed" *ngIf="stack.completed">
+        <div class="title">{{stack.completionTitle}}</div>
+        <div class="desc">{{stack.completionDescription}}</div>
+    </div>
+    <!-- <div class="disclaimer" *ngIf="!stack.completed && stack.infoRequired.length > 0">
+        <div class="title">Information we require</div>
+        <div class="info pills">
+            <div class="pill" *ngFor="let pill of stack.infoRequired">{{pill}}</div>
+        </div>
+    </div> -->
+    <div class="action">
+        <button class="rubik-font" (click)="selectStack()" *ngIf="!stack.completed">Start</button>
+        <button class="rubik-font" *ngIf="stack.completed" [class.promo_code]="stack.completed">
+            {{dataStore.sessionData.code}}
+            <span class="code_hint">
+                Promo Code Created
+            </span>
+        </button>
+    </div>
+</div>

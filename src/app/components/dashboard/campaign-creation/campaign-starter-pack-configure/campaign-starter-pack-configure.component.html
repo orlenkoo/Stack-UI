@@ -1,0 +1,29 @@
+<app-stack-progress-bar width='20px' barBorderRadius='20px 0 0 0' containerBorderRadius="20px 20px 0 0">
+</app-stack-progress-bar>
+<div class="container">
+    <div class="container__details">
+        <div class="container__logo">
+            <img class="container__logo" src="/assets/imgs/StackLogo.png" alt="">
+        </div>
+        <h2 class="container__main-label rubik-font">Configure</h2>
+        <p class="rubik-font container__secondary-label container__label--bold"> Now choose how much you’d like to
+            reward customers for their response & set the cap on the responses you recieve each month
+        </p>
+        <p class="rubik-font container__secondary-label">
+            Nb. This cap is reset at the beginning of each month.
+        </p>
+        <div class="container__footer">
+            <app-stack-button class="container__btn container__btn--primary roboto-font" type="text-btn"
+                label="Continue" (click)="onNext.emit()">
+            </app-stack-button>
+            <app-stack-button class="container__btn container__btn--secondary roboto-font" type="tertiary-text-btn"
+                label="Skip" (click)="onSkip.emit()">
+            </app-stack-button>
+        </div>
+    </div>
+    <div class="container__packs">
+        <app-campaign-pack *ngFor="let pack of packs; let i = index" class="campaign-pack--displayed" [pack]="pack"
+            [toggledPack]="packs[0].packId" (packChange)="onPackChange($event, i)">
+        </app-campaign-pack>
+    </div>
+</div>

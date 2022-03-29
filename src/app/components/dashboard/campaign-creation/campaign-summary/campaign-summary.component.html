@@ -1,0 +1,36 @@
+<div class="container__header">
+    <app-stack-progress-bar width='400px' barBorderRadius='20px 0 0 0' containerBorderRadius="20px 20px 0 0">
+    </app-stack-progress-bar>
+
+    <div class="container">
+        <div class="container__details">
+            <div>
+                <img class="container__logo" src="/assets/imgs/StackLogo.png" alt="">
+            </div>
+            <h2 class="container__main-label rubik-font">Summary</h2>
+            <p class="rubik-font container__secondary-label container__label--bold">Total Packs: {{(campaign?.packs ||
+                []).length}} </p>
+            <p class="rubik-font container__secondary-label container__label--bold">Max discount per customer:
+                ${{campaign?.totalDiscount}} </p>
+            <p class="rubik-font container__secondary-label container__label--bold">Colour theme:
+                {{campaign?.theme?.name}}</p>
+            <p class="rubik-font container__secondary-label container__label--bold">Logo: imagename.png</p>
+            <p class="rubik-font container__secondary-label container__label-logo">
+                You can come back and edit this at any time from your dashboard, or choose to pause a campaign all
+                together.
+            </p>
+
+            <div class="container__footer">
+                <app-stack-button class="container__btn container__btn--secondary roboto-font" type="text-btn"
+                    label="Launch" (click)="onNext.emit()">
+                </app-stack-button>
+            </div>
+        </div>
+        <div class="container__packs">
+            <div>
+                <app-stack-card-carousel [packs]="campaign?.packs || []" [background]="campaign?.theme?.value">
+                </app-stack-card-carousel>
+            </div>
+        </div>
+    </div>
+</div>

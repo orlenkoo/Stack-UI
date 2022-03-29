@@ -1,0 +1,61 @@
+<app-stack-modal *ngIf="open" [open]="open" (openChange)="openChange.emit(false)">
+    <div *ngIf="state === 'campagin-description'">
+        <ng-container *ngTemplateOutlet="campaignDescription"></ng-container>
+    </div>
+    <app-campaign-anatomy *ngIf="state === 'pack-anatomy'" (onNext)="state = 'pack-handicrafted'">
+    </app-campaign-anatomy>
+    <app-campaign-handicrafted *ngIf="state === 'pack-handicrafted'" (onNext)="state = 'pack-configurable'">
+    </app-campaign-handicrafted>
+    <app-campaign-configurable *ngIf="state === 'pack-configurable'" (onNext)="state = 'pack-starter'">
+    </app-campaign-configurable>
+    <app-campaign-starter-pack *ngIf="state === 'pack-starter'" (onNext)="state = 'pack-starter-configure'"
+        (onSkip)="state = 'pack-selection'">
+    </app-campaign-starter-pack>
+    <app-campaign-starter-pack-configure *ngIf="state === 'pack-starter-configure'"
+        (onNext)="state = 'pack-starter-complete'" (onSkip)="state = 'pack-selection'">
+    </app-campaign-starter-pack-configure>
+    <app-campaign-starter-pack-complete *ngIf="state === 'pack-starter-complete'" (onNext)="state = 'pack-selection'">
+    </app-campaign-starter-pack-complete>
+    <app-campaign-pack-selection *ngIf="state === 'pack-selection'" [(campaign)]="campaign"
+        (onNext)="state = 'color-selection'">
+    </app-campaign-pack-selection>
+    <app-campaign-color-selection *ngIf="state === 'color-selection'" [(campaign)]="campaign"
+        (onNext)="state = 'summary'">
+    </app-campaign-color-selection>
+    <app-campaign-summary *ngIf="state === 'summary'" [(campaign)]="campaign" (onNext)="state = 'complete'">
+    </app-campaign-summary>
+    <app-campaign-completion *ngIf="state === 'complete'" (onNext)="openChange.emit(false); campaignCreatedEvent.emit();">
+    </app-campaign-completion>
+</app-stack-modal>
+
+<ng-template #campaignDescription>
+    <div class="container">
+        <div class="container__details">
+            <div class="container__logo">
+                <img class="container__logo" src="/assets/imgs/StackLogo.png" alt="">
+            </div>
+            <h2 class="container__main-label rubik-font">Pick a Pack</h2>
+            <div class="container__sub-description">
+                <p class="rubik-font container__secondary-label container__label--bold">Select from a selection of short
+                    &
+                    sweet surveys to power your growth
+                </p>
+                <p class="rubik-font container__secondary-label">
+                    We’ve designed our packs to be fun, quick and unobtrusive. Select from our collection of expertly
+                    crafted surveys to gain useful, actionable customer insight to help your business grow.
+                </p>
+            </div>
+            <div class="container__footer">
+                <app-stack-button class="container__btn container__btn--secondary roboto-font" type="secondary-text-btn"
+                    label="Close" (click)="openChange.emit(false)">
+                </app-stack-button>
+                <app-stack-button class="container__btn container__btn--primary roboto-font" type="text-btn"
+                    label="Continue" (click)="showPackSelection()">
+                </app-stack-button>
+            </div>
+        </div>
+        <div class="container__packs">
+            <app-stack-list [limit]="2"></app-stack-list>
+        </div>
+    </div>
+</ng-template>

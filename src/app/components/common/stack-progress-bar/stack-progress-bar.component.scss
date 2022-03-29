@@ -1,0 +1,9 @@
+.progress {
+    display: block;
+    height: 20px;
+
+    &-bar {
+        width: 100%;
+        height: 100%;
+    }
+}

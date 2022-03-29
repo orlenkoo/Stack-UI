@@ -1,0 +1,82 @@
+@import "/src/assets/styles/variables.scss";
+
+.container {
+    padding: 86px 44.54px 68px 70px;
+    display: flex;
+    overflow: hidden;
+
+    &__logo {
+        width: 155px;
+        height: 50px;
+    }
+
+    &__details {
+        display: inline-block;
+        width: 365px;
+        flex: 0 0 auto;
+    }
+
+    &__packs {
+        display: inline-flex;
+        flex: 1 0 auto;
+        position: relative;
+        padding-left: 46.62px;
+    }
+
+    &__main-label {
+        font-weight: bold;
+        font-size: 48px;
+        line-height: 57px;
+        color: $navyPrimary;
+        margin: 30px 0 20px;
+    }
+
+    &__secondary-label {
+        font-size: 14px;
+        line-height: 16px;
+    }
+
+    &__label--bold {
+        font-weight: bold;
+        margin: 0;
+    }
+
+    &__footer {
+        margin-top: 50px;
+    }
+
+    &__btn {
+        display: inline-block;
+
+        &--primary {
+            height: 50px;
+            width: 178px;
+        }
+
+        &--secondary {
+            height: 50px;
+            width: 100px;
+            margin-right: 20px;
+        }
+    }
+}
+
+.campaign-pack--displayed {
+    display: block;
+    background-color: white;
+    &:nth-child(1) {
+        position: absolute;
+        left: 8.63%;
+        right: -2.75%;
+        top: 0%;
+        bottom: 7.34%;
+        transform: rotate(4.88deg);
+    }
+
+    &:nth-child(2) {
+        transform: rotate(-2deg);
+        position: absolute;
+        bottom: 0;
+        right: 5.88%;
+    }
+}

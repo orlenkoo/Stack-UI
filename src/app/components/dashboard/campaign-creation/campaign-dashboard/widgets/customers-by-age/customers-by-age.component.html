@@ -1,0 +1,16 @@
+<div style="width: 100%;">
+    <div class="header-div">
+        <div class="rubik-font title">Customers by Age</div>
+        <div class="rubik-font subtitle">Breakdown by age Bracket</div>
+    </div>
+
+    
+    <div class="rubik-font top-scorer"><sup style="font-size: 10px;">Avg.</sup>34</div>
+    
+    <div class="chart-div">
+        <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels"
+        [options]="barChartOptions" [plugins]="barChartPlugins" [legend]="barChartLegend" [chartType]="barChartType">
+    </canvas>
+    </div>
+    
+</div>

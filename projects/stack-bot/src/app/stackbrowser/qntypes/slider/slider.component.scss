@@ -1,0 +1,131 @@
+@import "/src/assets/styles/variables.scss";
+@import "/src/assets/styles/fonts.scss";
+@import "/src/assets/styles/theme.scss";
+
+.hint {
+  margin-bottom: 5px;
+  font-size: 12px;
+  font-style: italic;
+  color: #979797;
+}
+
+.slider_holder {
+  width: 221px;
+  margin: 0 auto;
+}
+
+.slider {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  height: 7px;
+  border-radius: 3.5px;
+  background-color: #c4c4c4;
+  width: 100%;
+  display: block;
+  margin: 0 auto;
+  cursor: pointer;
+  padding: 0;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: $bluePrimary;
+  cursor: pointer;
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: $bluePrimary;
+  cursor: pointer;
+}
+
+input[type="range"].very_berry_button::-webkit-slider-thumb {
+  background-color: $pinkPrimary;
+}
+input[type="range"].bondi_blue_button::-webkit-slider-thumb,
+input[type="range"].navy_button::-webkit-slider-thumb {
+  background-color: $bluePrimary;
+}
+input[type="range"].surry_sunset_button::-webkit-slider-thumb {
+  background-color: $orangePrimary;
+}
+input[type="range"].melbourne_moonlight_button::-webkit-slider-thumb {
+  background-color: $white;
+}
+
+input[type="range"].very_berry_button::-moz-range-thumb {
+  background-color: $pinkPrimary;
+}
+input[type="range"].bondi_blue_button::-moz-range-thumb,
+input[type="range"].navy_button::-moz-range-thumb {
+  background-color: $bluePrimary;
+}
+input[type="range"].surry_sunset_button::-moz-range-thumb {
+  background-color: $orangePrimary;
+}
+input[type="range"].melbourne_moonlight_button::-moz-range-thumb {
+  background-color: $white;
+}
+
+.slider-wrapper {
+  border: 1px solid #1e2640;
+  width: 315px;
+  min-height: 95px;
+  border-radius: 5px;
+  box-sizing: border-box;
+  padding: 12px 24px 15px 16px;
+  margin-bottom: 4px;
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+}
+
+.slider-wrapper > label {
+  font-weight: 400;
+  font-size: 10px;
+  color: $navyPrimary;
+  width: 221px;
+  display: block;
+  margin: 0 auto;
+  text-align: right;
+  margin-bottom: 5px;
+}
+
+.qn_for_slider {
+  @extend .rubik-font;
+  font-weight: 700;
+  font-size: 10px;
+  color: $navyPrimary;
+}
+
+.dot_wrapper {
+  position: relative;
+  top: -7px;
+  left: -5px;
+  pointer-events: none;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  background: #887f7f77;
+  border-radius: 100%;
+  display: block;
+  position: absolute;
+  &.hide {
+    display: none;
+  }
+  &:first-child {
+    margin-left: 4px;
+  }
+  &:last-child {
+    margin-left: -1px;
+  }
+}

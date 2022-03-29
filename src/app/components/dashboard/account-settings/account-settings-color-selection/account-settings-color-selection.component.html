@@ -1,0 +1,32 @@
+<app-stack-progress-bar width='540px' barBorderRadius='20px 0 0 0' containerBorderRadius="20px 20px 0 0">
+</app-stack-progress-bar>
+<div class="container__header">
+    <div class="container">
+        <div class="container__details">
+            <div>
+                <img class="container__logo" src="/assets/imgs/StackLogo.png" alt="">
+            </div>
+            <h2 class="container__main-label rubik-font">Pick a color</h2>
+            <p class="rubik-font container__secondary-label container__label--bold">Select a theme for your stackbot</p>
+            <p class="rubik-font container__secondary-label container__theme-label">
+                Theme: {{selectedColor.name || this.colors[0].name}}
+            </p>
+            <div>
+                <span *ngFor="let color of colors"
+                    [ngClass]="{'container__color-selection': true, 'container__color--selected':  selectedColor.name ?  selectedColor.name === color.name : this.colors[0].name === color.name}"
+                    [style.background]="color.value" (click)="onColorSelect(color)"></span>
+            </div>
+            <div class="container__footer">
+                <app-stack-button class="container__btn container__btn--primary roboto-font" type="text-btn"
+                    label="Continue" (click)="onNext.emit()">
+                </app-stack-button>
+            </div>
+        </div>
+        <div class="container__packs">
+            <!-- <app-stack-card class="container__stack-card" [stack]="stack"
+                [background]="selectedColor.value ||  this.colors[0].value">
+            </app-stack-card> -->
+            <div class="container__empty"></div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,35 @@
+<div>
+    <div class="sign-up-content rubik-font">
+        <div class="nav-label">
+            <a routerLink="/signup">&lt; Back</a>
+        </div>
+        <div class="main-label">
+            Tell us about you
+        </div>
+        <div class="form-label">
+            Personal Information
+        </div>
+        <div class="form roboto-font">
+            <app-stack-input id="first_name" 
+                type="text" 
+                label="First Name"
+                [validation]="validation.first_name"
+                [(ngModel)]="firstName" ngDefaultControl></app-stack-input>
+            <app-stack-input id="last_name" 
+                type="text" 
+                label="Last Name"
+                [validation]="validation.last_name"
+                [(ngModel)]="lastName" ngDefaultControl></app-stack-input>
+            <app-stack-input id="contact_phone_num" 
+                type="text" 
+                label="Contact Phone Number"
+                [validation]="validation.contact_phone_num"
+                hint="Enter your best contact number ie. (+61) xxxx xxx xxx"
+                [useMask]=true
+                [(ngModel)]="contactPhoneNum" ngDefaultControl></app-stack-input>
+        </div>
+        <div class="buttonholder">
+            <app-stack-button type="primary" label="Continue" (click)="continue()"></app-stack-button>
+        </div>
+    </div>
+</div>

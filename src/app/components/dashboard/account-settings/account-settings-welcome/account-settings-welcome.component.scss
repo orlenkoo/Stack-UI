@@ -1,0 +1,73 @@
+@import "/src/assets/styles/variables.scss";
+
+.container {
+    padding: 106px 44.54px 101px 70px;
+    display: flex;
+    overflow: hidden;
+
+    &__logo {
+        width: 155px;
+        height: 50px;
+    }
+
+    &__details {
+        display: inline-block;
+        width: 365px;
+        flex: 0 0 auto;
+    }
+
+    &__packs {
+        display: inline-flex;
+        flex: 0 0 auto;
+        position: relative;
+        padding-left: 68px;
+    }
+
+    &__empty {
+        width: 300px;
+        height: 400px;
+        background: #c4c4c4;
+        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.14), 0px 3px 1px rgba(0, 0, 0, 0.12), 0px 1px 5px rgba(0, 0, 0, 0.2);
+        border-radius: 10px;
+    }
+
+    &__main-label {
+        font-weight: bold;
+        font-size: 48px;
+        line-height: 57px;
+        color: $navyPrimary;
+        padding: 30px 0 20px;
+        margin: 0;
+    }
+
+    &__secondary-label {
+        font-size: 14px;
+        line-height: 16px;
+        margin: 0;
+        padding-top: 12px;
+    }
+
+    &__label--bold {
+        font-weight: bold;
+        margin: 0;
+    }
+
+    &__footer {
+        padding-top: 58px;
+    }
+
+    &__btn {
+        display: inline-block;
+
+        &--primary {
+            height: 50px;
+            width: 178px;
+        }
+
+        &--secondary {
+            height: 50px;
+            width: 100px;
+            margin-right: 20px;
+        }
+    }
+}

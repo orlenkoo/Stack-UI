@@ -1,0 +1,225 @@
+@import "/src/assets/styles/variables.scss";
+@import "/src/assets/styles/fonts.scss";
+@import "/src/assets/styles/theme.scss";
+
+:host {
+  z-index: 1000;
+  position: relative;
+  line-height: normal;
+  .hide {
+    display: none !important;
+  }
+  .stack_bot {
+    position: fixed;
+    bottom: 50px;
+    left: 50px;
+    z-index: 9;
+    height: 55px;
+    min-width: 55px;
+    border-radius: 50px;
+    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.14),
+      0px 1px 10px rgba(0, 0, 0, 0.12), 0px 2px 4px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    .bot_contents {
+      display: flex;
+      font-weight: 700;
+      font-size: 18px;
+      align-items: center;
+      .content {
+        flex: 1 100%;
+        padding: 10px;
+        .cross_icon {
+          position: relative;
+          top: 3px;
+          left: 0px;
+        }
+      }
+      &:hover {
+        .logo.content {
+          padding-left: 15px;
+          .cross_icon {
+            left: -3px;
+          }
+        }
+        .bot_text {
+          padding-left: 0;
+          padding-right: 20px;
+          margin-left: -5px;
+          max-width: 200px;
+          font-size: inherit;
+          opacity: 1;
+        }
+      }
+      .bot_text {
+        flex: none;
+        max-width: 0;
+        font-size: 0;
+        opacity: 0;
+        pointer-events: none;
+        padding: 0;
+        margin: 0;
+        transition: max-width 400ms, font-size 400ms;
+        &.hideContent {
+          max-width: 0;
+          font-size: 0;
+          opacity: 0;
+          padding: 0;
+          margin: 0;
+        }
+      }
+      &:hover {
+        + .bot_msgs {
+          display: block;
+        }
+      }
+      &.opnen_modal {
+        + .bot_msgs {
+          display: none;
+        }
+        &:hover {
+          + .bot_msgs {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+  .hasContent:hover + .vouchercode,
+  .hasContent:hover + .star_feedback {
+    left: 165px;
+  }
+  .star_feedback {
+    position: absolute;
+    left: 70px;
+    transition: left 400ms;
+    bottom: 0;
+    padding: 10px 20px;
+    border-radius: 55px;
+    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.14),
+      0px 1px 10px rgba(0, 0, 0, 0.12), 0px 2px 4px rgba(0, 0, 0, 0.2);
+    width: max-content;
+    .feedback_text {
+      font-weight: 700;
+      color: $navyPrimary;
+      font-size: 8px;
+      margin-bottom: 4px;
+    }
+    .star {
+      margin-right: 4px;
+    }
+  }
+  .vouchercode {
+    position: absolute;
+    left: 70px;
+    transition: left 400ms;
+    bottom: 0;
+    padding: 15px 20px;
+    font-size: 18px;
+    border-radius: 55px;
+    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.14),
+      0px 1px 10px rgba(0, 0, 0, 0.12), 0px 2px 4px rgba(0, 0, 0, 0.2);
+    font-weight: 700;
+    width: max-content;
+    .code {
+      text-transform: uppercase;
+    }
+    img {
+      margin-right: 8px;
+      position: relative;
+      top: 2px;
+    }
+    .copy_succesfull {
+      font-size: 8px;
+      font-weight: 500;
+      font-style: italic;
+      margin: -3px 0 -6px 27px;
+      text-transform: none;
+    }
+    &:hover {
+      background: $blueSecondary;
+    }
+  }
+  .bot_msgs {
+    position: absolute;
+    width: 250px;
+    left: 70px;
+    bottom: 30px;
+    display: none;
+    &.show_force {
+      display: block;
+    }
+    .msg {
+      font-size: 12px;
+      background-color: $white;
+      color: $black;
+      padding: 10px 18px;
+      margin-top: 6px;
+      box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.14),
+        0px 1px 10px rgba(0, 0, 0, 0.12), 0px 2px 4px rgba(0, 0, 0, 0.2);
+      .msg_title {
+        font-weight: 700;
+      }
+      .msg_body {
+        font-weight: 400;
+      }
+    }
+  }
+}
+
+.theme--light,
+.theme--dark {
+  &.orange {
+    background-color: $orangePrimary !important;
+    color: $white;
+    &:focus,
+    &:hover {
+      background-color: $orangeSecondary !important;
+    }
+  }
+  &.pink {
+    background-color: $pinkPrimary !important;
+    color: $white;
+    &:focus,
+    &:hover {
+      background-color: $pinkSecondary !important;
+    }
+  }
+  &.blue {
+    background-color: $bluePrimary !important;
+    color: $white;
+    &:focus,
+    &:hover {
+      background-color: $blueSecondary !important;
+    }
+  }
+  &.white {
+    background-color: $whitePrimary !important;
+    color: $white;
+    &:focus,
+    &:hover {
+      background-color: $whiteSecondary !important;
+    }
+  }
+}
+
+.theme--dark {
+  &.orange,
+  &.pink,
+  &.blue,
+  &.white {
+    color: $navyPrimary;
+  }
+}
+
+.theme--light {
+  &.white {
+    background-color: $navyPrimary !important;
+    color: $white;
+    &:focus,
+    &:hover {
+      background-color: $navySecondary !important;
+    }
+  }
+}

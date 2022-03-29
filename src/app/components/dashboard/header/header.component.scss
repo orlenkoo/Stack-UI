@@ -1,0 +1,26 @@
+.header {
+    margin-left: 130px;
+    padding: 0px 20px;
+    padding-left: 39px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 130px;
+    background: #ffffff;
+}
+
+.title {
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 43px;
+    display: flex;
+    align-items: center;
+    letter-spacing: -0.02em;
+    color: #1e2640;
+
+    > span {
+        font-weight: normal;
+    }
+}

@@ -1,0 +1,13 @@
+<app-header [sidenav]="leftSidenav"></app-header>
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #leftSidenav mode="side" opened [fixedInViewport]="true" [fixedTopGap]="0" [fixedBottomGap]="0">
+        <app-side-nav></app-side-nav>
+    </mat-sidenav>
+    <mat-sidenav-content class="sidenav-content" [@onMainContentChange]="onSideNavChange ? 'open': 'close'">
+        <div class="main_content">
+            <div>
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>

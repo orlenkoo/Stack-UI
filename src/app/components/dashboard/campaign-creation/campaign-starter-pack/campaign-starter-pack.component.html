@@ -1,0 +1,29 @@
+<app-stack-progress-bar width='20px' barBorderRadius='20px 0 0 0' containerBorderRadius="20px 20px 0 0">
+</app-stack-progress-bar>
+<div class="container">
+    <div class="container__details">
+        <div class="container__logo">
+            <img class="container__logo" src="/assets/imgs/StackLogo.png" alt="">
+        </div>
+        <h2 class="container__main-label rubik-font">Starter Pack</h2>
+        <p class="rubik-font container__secondary-label container__label--bold"> We suggest starting with something
+            simple
+        </p>
+        <p class="rubik-font container__secondary-label">
+            NPS is a industry wide way of measuring customer satidfaction start with this as a nice way to baseline your
+            imporvements over time. Why don’t we start by setting this one up.
+        </p>
+        <div class="container__footer">
+            <app-stack-button class="container__btn container__btn--primary roboto-font" type="text-btn"
+                label="Add Pack" (click)="onNext.emit()">
+            </app-stack-button>
+            <app-stack-button class="container__btn container__btn--secondary roboto-font" type="tertiary-text-btn"
+                label="Skip" (click)="onSkip.emit()">
+            </app-stack-button>
+        </div>
+    </div>
+    <div class="container__packs">
+        <app-campaign-pack *ngFor="let pack of packs; let i = index" class="campaign-pack--displayed" [pack]="pack">
+        </app-campaign-pack>
+    </div>
+</div>

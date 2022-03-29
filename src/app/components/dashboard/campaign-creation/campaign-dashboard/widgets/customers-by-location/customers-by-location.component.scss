@@ -1,0 +1,32 @@
+.title {
+    font-weight: 700;
+    font-size: 16px;
+    color: #1E2640;
+  }
+  
+  .subtitle {
+    font-weight: 400;
+    font-size: 12px;
+    font-style: italic;
+    color: #1E2640;
+  }
+
+  .chart-div {
+      width: 95%;
+      height: 180px;
+      margin-top: 10px;
+  }
+
+  .header-div {
+    width: 80%; 
+    display: inline-block;
+  }
+
+  .top-scorer {
+    width: 20%;
+    float: right;
+    text-align: center;
+    font-size: 36px;
+    font-weight: 700;
+    color: #1E2640;
+  }

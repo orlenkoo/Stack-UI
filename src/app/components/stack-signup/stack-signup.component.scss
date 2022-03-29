@@ -1,0 +1,22 @@
+@import "/src/assets/styles/variables.scss";
+@import "/src/assets/styles/responsive.scss";
+
+.signup-wrapper {
+  display: flex;
+
+  .signup-navbar {
+    padding: 42px 48px;
+  }
+  .column {
+    flex: 50%;
+    border-right: 0px solid black;
+    min-height: 100vh;
+    &:nth-child(2) {
+      background-color: $bluePrimary;
+      position: relative;
+      @include for_breakpoint(smalldesktop mobile tablet) {
+        display: none;
+      }
+    }
+  }
+}

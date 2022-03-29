@@ -1,0 +1,27 @@
+<div class="stack_cards">
+    <ng-container *ngFor="let card of packs; let i=index">
+        <app-stack-card swipe [stack]="card" [background]="background" (click)="cardClicked(i)" (next)="nextCard()"
+            (previous)="previousCard()" #card></app-stack-card>
+    </ng-container>
+</div>
+<div class="sb_pagination">
+    <div class="controls row">
+        <div class="left chevron column no-flex row" [ngClass]="{'disabled': activeCard === 0}"
+            (click)="previousCard()">
+            <img src="{{baseUrl}}/bot/browser/chevron_left.png" alt="Previous Card">
+        </div>
+        <div class="row vertical column">
+            <div class="pages_text">
+                Pack {{activeCard + 1}} of {{packs.length}}
+            </div>
+            <div class="pages_indicator row">
+                <div class="indicator column no-flex" *ngFor="let card of packs; let i=index" (click)="cardClicked(i)"
+                    [ngClass]="{'active': i === activeCard}"></div>
+            </div>
+        </div>
+        <div class="right chevron column no-flex row" [ngClass]="{'disabled': activeCard === (packs.length-1)}"
+            (click)="nextCard()">
+            <img src="{{baseUrl}}/bot/browser/chevron_right.png" alt="Next Card">
+        </div>
+    </div>
+</div>

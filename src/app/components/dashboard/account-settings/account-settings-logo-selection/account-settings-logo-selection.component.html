@@ -1,0 +1,34 @@
+<div class="container__header">
+    <app-stack-progress-bar width='720px' barBorderRadius='20px 0 0 0' containerBorderRadius="20px 20px 0 0">
+    </app-stack-progress-bar>
+
+    <div class="container">
+        <div class="container__details">
+            <div>
+                <img class="container__logo" src="/assets/imgs/StackLogo.png" alt="">
+            </div>
+            <h2 class="container__main-label rubik-font">Add a Logo</h2>
+            <p class="rubik-font container__secondary-label container__label--bold">Add your brands logo to appear at
+                the top of each pack. </p>
+            <p class="rubik-font container__secondary-label container__label--bold container__label-logo">
+                Your Logo:
+            </p>
+            <div>
+                <input type="file" id="files" class="hidden" />
+                <label for="files" class="container__file-selection"></label>
+            </div>
+
+            <div class="container__footer">
+                <app-stack-button class="container__btn container__btn--primary roboto-font" type="text-btn"
+                    label="Upload">
+                </app-stack-button>
+                <app-stack-button class="container__btn container__btn--secondary roboto-font" type="tertiary-text-btn"
+                    label="Continue" (click)="onNext.emit()">
+                </app-stack-button>
+            </div>
+        </div>
+        <div class="container__packs">
+            <div class="container__empty"></div>
+        </div>
+    </div>
+</div>

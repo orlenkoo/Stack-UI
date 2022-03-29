@@ -1,0 +1,31 @@
+@import "/src/assets/styles/variables.scss";
+@import "/src/assets/styles/fonts.scss";
+@import "/src/assets/styles/theme.scss";
+
+.abpoll_wrapper {
+  * {
+    box-sizing: border-box;
+  }
+  .poll_btn {
+    height: 110px;
+    width: 315px;
+    margin-bottom: 12px;
+    border-radius: 5px;
+    border: 1px solid $navyPrimary;
+    display: grid;
+    place-items: center;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    &.active {
+      background: linear-gradient(
+        156.6deg,
+        #395a82 0%,
+        #4789ba 49.48%,
+        #4fcaff 100%
+      );
+      border: none;
+      color: $white;
+    }
+  }
+}

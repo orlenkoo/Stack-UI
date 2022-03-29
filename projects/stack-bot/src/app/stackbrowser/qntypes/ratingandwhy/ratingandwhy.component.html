@@ -1,0 +1,27 @@
+<div class="ratingandwhy_wrapper rubik-font">
+    <div class="rating_textarea">
+        <input
+            name="rating"
+            id="rating"
+            class="rubik-font"
+            type="number"
+            max=10
+            [(ngModel)] = "rating_value"
+            (keydown) = "validateRatingInput($event)"
+            (keyup) = "checkAllValuesPresent()"
+            required
+            >
+        <label for="rating">Type a score out of 10</label>
+    </div>
+    <div class="why_textarea">
+        <textarea
+            name="why"
+            id="why"
+            class="rubik-font"
+            [(ngModel)] = "why_value"
+            (keyup) = "checkAllValuesPresent()"
+            required
+            ></textarea>
+        <label for="why">Why did you give that score?</label>
+    </div>
+</div>

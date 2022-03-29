@@ -1,0 +1,15 @@
+<div style="width: 100%;">
+    <div class="header-div">
+        <div class="rubik-font title">Customers by Location</div>
+        <div class="rubik-font subtitle">Breakdown by State</div>
+    </div>
+
+    <div class="rubik-font top-scorer">NSW</div>
+
+    <div class="chart-div">
+        <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels"
+        [options]="barChartOptions" [plugins]="barChartPlugins" [legend]="barChartLegend" [chartType]="barChartType">
+    </canvas>
+    </div>
+    
+</div>

@@ -1,0 +1,38 @@
+:host {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 130px);
+    flex-direction: column;
+
+    .shoppify-img {
+        width: 522px;
+        height: 306px;
+    }
+
+    .container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding-top: 112px;
+
+        &__main-label {
+            font-weight: 700;
+            font-size: 48px;
+            line-height: 57px;
+            margin: 0;
+        }
+
+        &__secondary-label {
+            font-size: 16px;
+            line-height: 19px;
+            margin: 11px 0 67px;
+        }
+
+        &__btn {
+            width: 257px;
+            height: 51px;
+        }
+    }
+}

@@ -1,0 +1,71 @@
+@import "/src/assets/styles/variables.scss";
+
+.select-wrapper {
+  position: relative;
+  color: $navyPrimary;
+  margin-bottom: 21px;
+  .select-box {
+    width: 100%;
+    padding: 14px;
+    min-height: 50px;
+    border-radius: 5px;
+    font-size: 16px;
+    border: 2px solid $mute-grey;
+    cursor: pointer;
+    display: flex;
+    .selected-value {
+      flex: 1 100%;
+    }
+    .chevron {
+      flex: none;
+    }
+    + label {
+      position: absolute;
+      top: 16px;
+      left: 14px;
+      font-size: 16px;
+      transition: all 200ms;
+      color: $black50;
+      cursor: text;
+      z-index: 0;
+    }
+    &:focus,
+    &.valid {
+      border: 2px solid $navyPrimary;
+      + label {
+        top: -6px;
+        font-size: 12px;
+        background-color: $white;
+        padding: 0 2px;
+        color: $black;
+      }
+    }
+  }
+  .options-list-box {
+    display: none;
+    position: absolute;
+    background-color: $white;
+    width: 100%;
+    border: 1px solid $navySecondary;
+    border-radius: 4px;
+    box-shadow: 1px 2px 3px 0 $black50;
+    max-height: 200px;
+    overflow-y: auto;
+    &.active {
+      display: block;
+      top: 52px;
+      z-index: 999;
+    }
+    .option {
+      padding: 7px 5px;
+      cursor: pointer;
+      &:hover {
+        background-color: $mute-grey;
+      }
+      &.active {
+        background-color: $navySecondary;
+        color: $white;
+      }
+    }
+  }
+}

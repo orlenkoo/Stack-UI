@@ -1,0 +1,28 @@
+<app-stack-progress-bar width='20px' barBorderRadius='20px 0 0 0' containerBorderRadius="20px 20px 0 0">
+</app-stack-progress-bar>
+<div class="container">
+    <div class="container__details">
+        <div class="container__logo">
+            <img class="container__logo" src="/assets/imgs/StackLogo.png" alt="">
+        </div>
+        <h2 class="container__main-label rubik-font">Handcrafted</h2>
+        <p class="rubik-font container__secondary-label container__label--bold">Select from from our growing collection
+            of expertly crafted surveys
+        </p>
+        <p class="rubik-font container__secondary-label">
+            Each of the packs available to you were written by the Stack research team to ensure responses are accurate,
+            trusted and quick. Response go straight into your insights dashboard to start informing your business
+            actions.
+        </p>
+        <div class="container__footer">
+            <app-stack-button class="container__btn container__btn--primary roboto-font" type="text-btn"
+                label="Continue" (click)="onNext.emit()">
+            </app-stack-button>
+        </div>
+    </div>
+    <div class="container__packs">
+        <app-campaign-pack *ngFor="let pack of packs; let i = index" class="campaign-pack--displayed" [pack]="pack"
+            [actionVisible]="false">
+        </app-campaign-pack>
+    </div>
+</div>

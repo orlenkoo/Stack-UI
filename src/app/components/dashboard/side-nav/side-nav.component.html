@@ -1,0 +1,34 @@
+<div class="sidenav_container" [@onSideNavChange]="sideNavState ? 'open' : 'close'">
+    <div class="nav-list">
+        <div>
+            <mat-nav-list>
+                <a mat-nav-list class="logo-icon">
+                    <img src="/assets/imgs/StackLogo_Coins.png" />
+                </a>
+            </mat-nav-list>
+            <mat-nav-list>
+                <a mat-list-item class="nav-link" *ngFor="let page of pages" [routerLink]="page?.link"
+                    routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                    <div class="nav-item">
+                        <div class="img-container">
+                            <div *ngIf="page?.icon; else imageTemplate" [innerHTML]="page?.icon"></div>
+                            <ng-template #imageTemplate>
+                                <img [src]="'/assets/imgs/' + page?.image" />
+                            </ng-template>
+                        </div>
+                        <span class="nav-label rubik-font" [@animateText]="linkText ? 'show' : 'hide'">{{ page?.name }}
+                        </span>
+                    </div>
+                </a>
+            </mat-nav-list>
+        </div>
+    </div>
+
+    <span class="spacer"></span>
+    <div class="toggle-container">
+        <button mat-icon-button (click)="onSinenavToggle()">
+            <mat-icon *ngIf="sideNavState">chevron_left</mat-icon>
+            <mat-icon *ngIf="!sideNavState">chevron_right</mat-icon>
+        </button>
+    </div>
+</div>

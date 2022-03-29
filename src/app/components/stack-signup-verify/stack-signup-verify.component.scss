@@ -1,0 +1,62 @@
+@import "/src/assets/styles/variables.scss";
+
+.verify-form-msg {
+  font-weight: 400;
+  font-size: 16px;
+  color: $black;
+}
+
+.input-code-grid {
+  input {
+    -webkit-appearance: none;
+    -moz-appearance: textfield;
+    height: 106px;
+    width: 70px;
+    font-size: 48px;
+    padding: 11px 10px;
+    text-align: center;
+    border: 1px solid #e0e0e0;
+    margin-right: 10px;
+  }
+
+  input:active {
+    border: 1px solid #979797;
+  }
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  .code-valid {
+    border: 1px solid $bluePrimary;
+  }
+
+  .code-invalid {
+    border: 1px solid $pinkPrimary;
+  }
+}
+
+.code-verification-check-wrapper {
+  text-align: left;
+  margin-top: 10px;
+
+  div {
+    line-height: 16px;
+    font-size: 12px;
+    img {
+      width: 20px;
+      height: 20px;
+      vertical-align: middle;
+    }
+  }
+
+  .incorrect-code {
+    color: $pinkPrimary;
+  }
+
+  .code-verified {
+    color: $bluePrimary;
+  }
+}

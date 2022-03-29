@@ -1,0 +1,31 @@
+.title {
+    font-weight: 700;
+    font-size: 16px;
+    color: #1E2640;
+  }
+  
+  .subtitle {
+    font-weight: 400;
+    font-size: 12px;
+    font-style: italic;
+    color: #1E2640;
+  }
+  
+  .content {
+    font-weight: 700;
+    font-size: 96px;
+    color: #1E2640;
+    text-align: center;
+  }
+
+  .answer-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 170px;
+    align-items: center;
+  }
+
+  .next-icons {
+      font-size: 60px !important;
+  }

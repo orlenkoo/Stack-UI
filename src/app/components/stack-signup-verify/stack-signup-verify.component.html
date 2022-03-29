@@ -1,0 +1,44 @@
+<div>
+    <div class="sign-up-content rubik-font">
+        <div class="nav-label">
+            <a routerLink="/signup/profile">&lt; Back</a>
+        </div>
+        <div class="main-label">
+            Almost There
+        </div>
+        <div class="form-label">
+            Verify Email Address
+        </div>
+        <p class="verify-form-msg">Enter the 6 digit code sent to your email address {{dataService.user.emailId}}</p>
+        <div class="form-label">
+            Enter Your Code
+        </div>
+        <div [formGroup]="group">
+            <div class="input-code-grid" formArrayName="inputs">
+                <span *ngFor="let box of placeholders; index as i">
+                    <input #input
+                        type="number"
+                        min="0"
+                        max="9"
+                        [ngClass]="validatorClass"
+                        [formControlName]="i"
+                        (keyup.backspace)="onBackspace(i)" />
+                </span>
+            </div>
+        </div>
+        <div class="code-verification-check-wrapper" *ngIf="codeVerified !== undefined">
+            <div class="code-verified" *ngIf="codeVerified">
+                <img src="/assets/imgs/check_circle_24px.png" alt="Verified"> Code Verified
+            </div>
+            <div class="incorrect-code" *ngIf="!codeVerified">
+                <img src="/assets/imgs/close_24px copy.png" alt="Not Verified"> Incorrect Code
+            </div>
+        </div>
+        
+        <div class="buttonholder">
+            <app-stack-button type="primary" label="Continue" [buttonDisabled]="submitDisabled" (click)="onSubmit()"></app-stack-button>
+            <app-stack-button *ngIf="!codeResent" type="link" label="RE-SEND CODE" (click)="resendCode()"></app-stack-button>
+            <app-stack-button *ngIf="codeResent" type="link" label="CODE RE-SENT" imageSrc="/assets/imgs/check_circle_24px.png" alignment="right" [buttonDisabled]="codeResent" (click)="resendCode()"></app-stack-button>
+        </div>
+    </div>
+</div>

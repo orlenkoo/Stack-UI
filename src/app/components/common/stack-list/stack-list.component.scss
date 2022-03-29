@@ -1,0 +1,43 @@
+:host {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-self: center;
+
+    .continer__stacks {
+        display: inline-block;
+        &:nth-child(1) {
+            transform: rotate(-10.18deg);
+            position: relative;
+            right: -140px;
+        }
+
+        &:nth-child(2) {
+            z-index: 1;
+        }
+
+        &:nth-child(3) {
+            transform: rotate(10.18deg);
+            position: relative;
+            left: -140px;
+        }
+    }
+
+    .continer__stacks--even {
+        display: inline-block;
+        &:nth-child(1) {
+            transform: rotate(-6.42deg);
+            position: relative;
+        }
+
+        &:nth-child(2) {
+            transform: rotate(6.71deg);
+            position: absolute;
+            left: 34.77%;
+        }
+    }
+
+    .continer__stacks--solo {
+        display: inline-block;
+    }
+}

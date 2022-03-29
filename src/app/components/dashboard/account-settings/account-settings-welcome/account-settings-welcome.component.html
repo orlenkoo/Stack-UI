@@ -1,0 +1,53 @@
+<app-stack-modal *ngIf="open" [open]="open" (openChange)="openChange.emit(false)">
+    <div *ngIf="state === 'campagin-description'">
+        <ng-container *ngTemplateOutlet="campaignDescription"></ng-container>
+    </div>
+    <app-account-settings-bot *ngIf="state === 'account-setting-bot'" (onNext)="state = 'pack-description'">
+    </app-account-settings-bot>
+    <app-account-settings-pack-description *ngIf="state === 'pack-description'" (onNext)="state = 'color-selection'">
+    </app-account-settings-pack-description>
+    <app-account-settings-color-selection *ngIf="state === 'color-selection'" (onNext)="state = 'logo-selection'">
+    </app-account-settings-color-selection>
+    <app-account-settings-logo-selection *ngIf="state === 'logo-selection'" (onNext)="state = 'installation'">
+    </app-account-settings-logo-selection>
+    <app-account-settings-installation *ngIf="state === 'installation'" (onNext)="state = 'completion'">
+    </app-account-settings-installation>
+    <app-account-settings-completion *ngIf="state === 'completion'" (onNext)="openChange.emit(false)">
+    </app-account-settings-completion>
+</app-stack-modal>
+
+<ng-template #campaignDescription>
+    <div class="container">
+        <div class="container__details">
+            <div class="container__logo">
+                <img class="container__logo" src="/assets/imgs/StackLogo.png" alt="">
+            </div>
+            <h2 class="container__main-label rubik-font">Welcome!</h2>
+            <div class="container__sub-description">
+                <p class="rubik-font container__secondary-label container__label--bold"> Your very own customer insights
+                    Dashboard
+                </p>
+                <p class="rubik-font container__secondary-label">
+                    Whether you’re looking to drive bigger carts and faster conversions, baseline your customer
+                    exprience, generate store reviews or run a deep dive into your customers - it’s all here.
+
+                    Let’s get all set up.
+                </p>
+                <p class="rubik-font container__secondary-label">
+                    Let’s get all set up.
+                </p>
+            </div>
+            <div class="container__footer">
+                <app-stack-button class="container__btn container__btn--secondary roboto-font" type="secondary-text-btn"
+                    label="Close" (click)="openChange.emit(false)">
+                </app-stack-button>
+                <app-stack-button class="container__btn container__btn--primary roboto-font" type="text-btn"
+                    label="Get Setup" (click)="state = 'account-setting-bot'">
+                </app-stack-button>
+            </div>
+        </div>
+        <div class="container__packs">
+            <div class="container__empty"></div>
+        </div>
+    </div>
+</ng-template>

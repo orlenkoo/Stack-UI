@@ -1,0 +1,13 @@
+<div class="abpoll_wrapper">
+    <ng-container *ngFor="let option of options">
+        <div class="poll_btn rubik-font"
+            (mouseenter)="option.interaction? option.interaction.hovered = true : true"
+            (mouseleave)="option.interaction? option.interaction.hovered = false : true"
+            [ngClass]="[option.active ? theme : '', option.interaction?.hovered ? theme : '']"
+            tabindex="1"
+            (click) = "selectOption(option)"
+            (keydown) = "checkProperKeys($event, option)">
+            {{option.value}}
+        </div>
+    </ng-container>
+</div>

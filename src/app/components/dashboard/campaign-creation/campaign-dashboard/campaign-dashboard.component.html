@@ -1,0 +1,70 @@
+<div style="width: 100%;">
+    <h2 class="heading">Research Performance</h2>
+    <mat-grid-list cols="3" rowHeight="260px" [gutterSize]="'25px'">
+        <mat-grid-tile class="mat-elevation-z5 widget">
+            <app-total-participants class="main-widget"></app-total-participants>
+        </mat-grid-tile>
+        <mat-grid-tile class="mat-elevation-z5 widget">
+            <app-total-packs-completed class="main-widget"></app-total-packs-completed>
+        </mat-grid-tile>
+        <mat-grid-tile class="mat-elevation-z5 widget">
+            <app-total-questions-answered class="main-widget"></app-total-questions-answered>
+        </mat-grid-tile>
+        <mat-grid-tile class="mat-elevation-z5 widget">
+            <app-customers-by-age class="main-widget"></app-customers-by-age>
+        </mat-grid-tile>
+        <mat-grid-tile class="mat-elevation-z5 widget">
+            <app-customers-by-gender class="main-widget"></app-customers-by-gender>
+        </mat-grid-tile>
+        <mat-grid-tile class="mat-elevation-z5 widget">
+            <app-customers-by-location class="main-widget"></app-customers-by-location>
+        </mat-grid-tile>
+    </mat-grid-list>
+    <h2 class="heading">Pack Overview</h2>
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" style="width: 100%">
+
+        <ng-container matColumnDef="packType">
+            <th mat-header-cell *matHeaderCellDef> Pack Type </th>
+            <td mat-cell *matCellDef="let element"> {{element.packType}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="packName">
+            <th mat-header-cell *matHeaderCellDef> Pack Name </th>
+            <td mat-cell *matCellDef="let element"> {{element.packName}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="status">
+            <th mat-header-cell *matHeaderCellDef> Status </th>
+            <td mat-cell *matCellDef="let element">
+                <mat-chip-list>
+                    <mat-chip class="status-chip">{{element.status}}</mat-chip>
+                </mat-chip-list>
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="responses">
+            <th mat-header-cell *matHeaderCellDef> Responses </th>
+            <td mat-cell *matCellDef="let element"> {{element.responses}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef> Actions </th>
+            <td mat-cell *matCellDef="let element">
+                <app-stack-button class="roboto-font action-btn" type="text-btn" label="View Results">
+                </app-stack-button>
+                <app-stack-button class="roboto-font action-btn" type="text-btn" label="Edit Campaign">
+                </app-stack-button>
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="active">
+            <th mat-header-cell *matHeaderCellDef> Active </th>
+            <td class="active-toggle" mat-cell *matCellDef="let element">
+                <mat-slide-toggle [checked]="element.active"></mat-slide-toggle>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</div>

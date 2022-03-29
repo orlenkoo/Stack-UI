@@ -1,0 +1,68 @@
+.heading {
+    font-family: "Rubik", sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.widget {
+    background: #F1F1F1;
+    border-radius: 10px;
+}
+
+tr.mat-header-row {
+    background: #1E2640;
+}
+
+tr.mat-header-row th{
+    color:white;
+    font-size: 18px;
+    font-weight: 700;
+    font-family: "Roboto", sans-serif;
+}
+
+tr.mat-row {
+    background: #E0E0E0;
+}
+
+tr.mat-row td{
+    font-size: 18px;
+    font-weight: 700;
+    font-family: "Roboto", sans-serif;
+}
+
+.status-chip {
+    background: #2DCA50;
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+    font-family: "Roboto", sans-serif;
+}
+
+.action-btn {
+    display: inherit;
+    width: 150px;
+    padding: 10px;
+}
+
+.widget >::ng-deep .mat-grid-tile-content {
+    align-items: start !important;
+    justify-content: start !important;
+}
+
+.live-data-table >::ng-deep .mat-grid-tile-content {
+    align-items: start !important;
+    justify-content: start !important;
+}
+
+.main-widget {
+    width: 100%;
+    padding: 20px;
+}
+
+.active-toggle >::ng-deep .mat-slide-toggle.mat-checked .mat-slide-toggle-thumb {
+    background-color: white;
+}
+
+.active-toggle >::ng-deep .mat-slide-toggle.mat-checked .mat-slide-toggle-bar {
+    background-color: #23BDFF;
+}

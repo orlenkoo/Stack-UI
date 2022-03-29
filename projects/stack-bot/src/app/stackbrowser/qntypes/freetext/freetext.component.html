@@ -1,0 +1,10 @@
+<div class="freetext_wrapper rubik-font">
+    <textarea
+        name="freetext"
+        id="freetext"
+        class="rubik-font"
+        [(ngModel)] = "freetext_value"
+        (keyup) = "checkValuePresent()"
+        required></textarea>
+    <label for="freetext">Type your response here</label>
+</div>

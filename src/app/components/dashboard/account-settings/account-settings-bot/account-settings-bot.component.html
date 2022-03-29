@@ -1,0 +1,27 @@
+<app-stack-progress-bar width='180px' barBorderRadius='20px 0 0 0' containerBorderRadius="20px 20px 0 0">
+</app-stack-progress-bar>
+<div class="container">
+
+    <div class="container__details">
+        <div class="container__logo">
+            <img class="container__logo" src="/assets/imgs/StackLogo.png" alt="">
+        </div>
+        <h2 class="container__main-label rubik-font">The Stackbot</h2>
+        <div class="container__sub-description">
+            <p class="rubik-font container__secondary-label container__label--bold">
+                A little button to start accelerating your store’s growth
+            </p>
+            <p class="rubik-font container__secondary-label">
+                The Stackbot will appear in the bottom left corner only if there are Packs available for you customers.
+            </p>
+        </div>
+        <div class="container__footer">
+            <app-stack-button class="container__btn container__btn--primary roboto-font" type="text-btn"
+                label="Continue" (click)="onNext.emit()">
+            </app-stack-button>
+        </div>
+    </div>
+    <div class="container__packs">
+        <div class="container__empty"></div>
+    </div>
+</div>

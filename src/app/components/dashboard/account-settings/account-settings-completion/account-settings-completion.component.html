@@ -1,0 +1,27 @@
+<div class="container__header">
+    <app-stack-progress-bar width='900px' barBorderRadius='20px 0 0 0' containerBorderRadius="20px 20px 0 0">
+    </app-stack-progress-bar>
+
+    <div class="container">
+        <div class="container__details">
+            <div>
+                <img class="container__logo" src="/assets/imgs/StackLogo.png" alt="">
+            </div>
+            <h2 class="container__main-label rubik-font">Success!</h2>
+            <p class="rubik-font container__secondary-label container__label--bold">The Stackbot is now connected to
+                your store</p>
+            <p class="rubik-font container__secondary-label">
+
+                Before customers start to see the Stackbot appearing as they browse we need to setup some packs.</p>
+
+            <div class="container__footer">
+                <app-stack-button class="container__btn container__btn--secondary roboto-font" type="text-btn"
+                    label="Continue" (click)="onNext.emit()">
+                </app-stack-button>
+            </div>
+        </div>
+        <div class="container__congrats">
+            <img class="container__congrats-img" src="/assets/imgs/Saly-5.png" alt="">
+        </div>
+    </div>
+</div>

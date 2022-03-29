@@ -1,0 +1,20 @@
+<div class="rubik-font">
+    <div class="answers_wrapper">
+        <div class="hint">Select <span *ngIf="!multi">one</span><span *ngIf="multi">any</span> of the following</div>
+        <div class="options">
+            <div
+                tabindex="1"
+                class="option"
+                *ngFor="let option of options"
+                (keydown)="checkProperKeys($event, option)"
+                (mouseenter)="option.interaction? option.interaction.hovered = true : true"
+                (mouseleave)="option.interaction? option.interaction.hovered = false : true"
+                (click)="setAnswer(option)"
+                [ngClass]="[option.active ? theme : '', option.interaction?.hovered ? theme : '']">
+                <span *ngIf="option.label?.trim()?.toLowerCase() !== 'other'">
+                    {{option.label}}
+                </span>
+            </div>
+        </div>
+    </div>
+</div>

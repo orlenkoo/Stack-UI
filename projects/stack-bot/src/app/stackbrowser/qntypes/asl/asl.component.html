@@ -1,0 +1,59 @@
+<div class="asl-wrapper">
+    <div class="heading rubik-font">
+        Enter your details
+    </div>
+    <div class="gender-wrapper">
+        <div class="select-box" tabindex="0" 
+            (click)="toggleSelect()"
+            [class.selected]="gender">
+            <div class="selected-value">{{selectedGender || 'Gender'}}</div>
+            <div class="caret">
+                <span *ngIf="!isOpen">
+                    <svg width="18" height="10" viewBox="0 0 18 10" fill="none" xmlns="http://www.w3.org/2000/svg" [class.filled]="gender">
+                        <path d="M0.93379 1.75661L8.44617 9.48613C8.44617 9.48613 9.3934 10.7228 10.5514 9.35926L17.5288 2.06887C17.8233 1.76074 17.9788 1.32543 17.9 0.900601C17.8475 0.615689 17.6923 0.331095 17.3205 0.174011C16.3918 -0.218061 15.8346 0.409318 15.8346 0.409318L9.42832 7.02336L2.97692 0.409318C2.97692 0.409318 2.21326 -0.32554 1.4703 0.174011C0.727345 0.673562 0.840766 1.6609 0.93379 1.75661Z"/>
+                    </svg>
+                </span>
+                <span *ngIf="isOpen">
+                    <svg width="18" height="10" viewBox="0 0 18 10" fill="none" xmlns="http://www.w3.org/2000/svg" [class.filled]="gender">
+                        <path d="M17.446 8.24339L9.81204 0.513868C9.81204 0.513868 8.84948 -0.722768 7.67273 0.640741L0.582418 7.93113C0.283129 8.23926 0.12516 8.67457 0.205242 9.0994C0.258631 9.38431 0.416285 9.66891 0.794086 9.82599C1.73781 10.2181 2.30404 9.59068 2.30404 9.59068L8.81399 2.97664L15.3698 9.59068C15.3698 9.59068 16.1458 10.3255 16.9008 9.82599C17.6558 9.32644 17.5405 8.3391 17.446 8.24339Z"/>
+                    </svg>    
+                </span>
+            </div>
+        </div>
+        <div class="options-list-box" [class.active]="isOpen">
+            <div class="option" 
+                *ngFor="let option of genderOptions; index as i"
+                tabindex="0"
+                (click)="selectOption(option)"
+                (mouseenter)="option.interaction? option.interaction.hovered = true : true"
+                (mouseleave)="option.interaction? option.interaction.hovered = false : true"
+                [ngClass] = "[option.label === gender ? theme : '', option.interaction?.hovered ? theme : '']">{{option.label}}</div>
+        </div>
+    </div>
+    <div class="birth-year-wrapper">
+        <textarea
+            name="birth-year"
+            id="birth-year"
+            class="rubik-font"
+            maxlength="4"
+            [(ngModel)] = "birthYear"
+            (keyup) = "checkAllValuesPresent()"
+            oninput="this.value=this.value.replace(/[^0-9]/g,'')"
+            required
+        ></textarea>
+        <label for="birth-year">Year of Birth</label>
+    </div>
+    <div class="postcode-wrapper">
+        <textarea
+            name="postcode"
+            id="postcode"
+            class="rubik-font"
+            maxlength="6"
+            [(ngModel)] = "postcode"
+            (keyup) = "checkAllValuesPresent()"
+            oninput="this.value=this.value.replace(/[^0-9]/g,'')"
+            required
+        ></textarea>
+        <label for="postcode">Postcode</label>
+    </div>
+</div>

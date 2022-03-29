@@ -1,0 +1,89 @@
+@import "/src/assets/styles/variables.scss";
+
+.carousel-container {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  .img-holder {
+    height: 75vh;
+    padding: 30px;
+    box-sizing: border-box;
+    &.fullsize {
+      height: 100vh;
+      padding: 0;
+    }
+    img {
+      height: 100%;
+      display: block;
+      margin: 0 auto;
+    }
+  }
+  .text-info {
+    margin-left: 120px;
+    margin-bottom: 50px;
+    width: 60%;
+    .caption {
+      font-weight: 700;
+      color: $white;
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+    .subText {
+      font-weight: 400;
+      color: $white;
+      font-size: 16px;
+    }
+  }
+  .controls {
+    margin: 0 120px;
+    display: flex;
+    .dots {
+      flex: 1 100%;
+      .dot-container {
+        padding: 4px;
+        cursor: pointer;
+        display: inline-block;
+        .dot {
+          height: 7px;
+          width: 7px;
+          border-radius: 100%;
+          background-color: rgba($white, 0.3);
+          transition: all 400ms;
+          &.active {
+            background-color: $white;
+          }
+        }
+      }
+    }
+    .chevron-controls {
+      flex: 1 100%;
+      text-align: right;
+      button {
+        margin-left: 10px;
+        height: 36px;
+        width: 36px;
+        background: transparent;
+        border: 1px solid $white;
+        border-radius: 4px;
+        cursor: pointer;
+        color: $white;
+        font-weight: 700;
+        .previous {
+          transform: rotateY(180deg);
+        }
+      }
+    }
+  }
+  * {
+    transition: all 400ms;
+  }
+  .transitionLeft {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  .transitionRight {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+}

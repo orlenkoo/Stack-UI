@@ -1,0 +1,82 @@
+<div [ngClass]="{'pack': true, 'pack--toggled': (toggledPack ===
+pack?.packId)}">
+    <div>
+        <div class="pack__title-continer">
+            <p class="pack__title rubik-font">{{!toggledPack || toggledPack !== pack?.packId ? pack?.title: 'Edit this
+                pack'}}
+            </p>
+            <mat-icon *ngIf="toggledPack !== pack?.packId && pack?.maxRedemptions && pack?.discountAmount"
+            (click)="editPack()"    
+            class="edit-icon cursor-pointer">
+                edit
+            </mat-icon>
+        </div>
+        <div class="pack__body">
+            <ng-container *ngIf="!toggledPack || toggledPack !== pack?.packId; else selectionContainer">
+                <p class="pack__body-title rubik-font">{{pack?.introduction?.title}}</p>
+                <p class="pack__body-description rubik-font">{{pack?.introduction?.description}}</p>
+
+                <div class="pack__details">
+                    <div class="pack__details__container">
+                        <p class="pack__body-trigger rubik-font"><img class="img"
+                                [src]="icons.target" />{{pack?.packPolicy?.trigger}}</p>
+                        <p class="pack__body-estimated-time rubik-font">
+                            <img class="img" [src]="icons.watch" />{{pack?.estimatedTime}}min
+                        </p>
+                    </div>
+                    <div *ngIf="pack?.discountAmount && pack?.maxRedemptions" class="pack__details__container">
+                        <p class="pack__body-trigger rubik-font"><img class="img"
+                                [src]="icons.piggy" />{{pack?.discountAmount}}</p>
+                        <p class="pack__body-estimated-time rubik-font"><img class="img"
+                                [src]="icons.list" />{{pack?.maxRedemptions}}</p>
+                    </div>
+                </div>
+
+                <a class="pack__body-link rubik-font">View all questions</a>
+            </ng-container>
+
+            <ng-template #selectionContainer>
+                <div>
+                    <p class="pack__body-limit rubik-font">Discount /response</p>
+                    <div>
+                        <span
+                            [ngClass]="{'pack__detail-selection': true, 'pack__detail-selection--selected': value?.discountAmount === limit}"
+                            *ngFor="let limit of discountLimit" (click)="onChange({discountAmount: limit})"><span
+                                class="rubik-font">${{limit}}</span></span>
+                        <span>
+                            <mat-form-field class="custom-input-form" appearance="outline">
+                                <input class="custom-input" type="number" [(ngModel)]="value.discountAmount" matInput placeholder="$">
+                              </mat-form-field>
+                        </span>
+                    </div>
+                </div>
+                <div>
+                    <p class="pack__body-cap rubik-font">Response cap /mth</p>
+                    <div>
+                        <span
+                            [ngClass]="{'pack__detail-selection': true, 'pack__detail-selection--selected': value?.maxRedemptions === limit}"
+                            *ngFor="let limit of responseLimit" (click)="onChange({maxRedemptions: limit})">
+                            <span class="rubik-font">{{limit}}</span></span>
+                            <span>
+                                <mat-form-field class="custom-input-form" appearance="outline">
+                                    <input class="custom-input" type="number" [(ngModel)]="value.maxRedemptions" matInput placeholder="#">
+                                  </mat-form-field>
+                            </span>
+                    </div>
+                </div>
+            </ng-template>
+        </div>
+    </div>
+    <span *ngIf="actionVisible" [ngClass]="{'pack__add': true, 'pack__edited':(toggledPack !==
+        pack?.packId) &&  pack?.discountAmount && pack?.maxRedemptions}">
+        <mat-icon (click)="toggledPackChange.emit(pack.packId)" class="cursor-pointer" *ngIf="(!toggledPack ||
+        (toggledPack !==
+        pack?.packId)) &&  !(pack?.discountAmount && pack?.maxRedemptions); else doneTemplate">add</mat-icon>
+
+            <ng-template #doneTemplate>
+                <mat-icon (click)="addPack($event)" class="cursor-pointer">
+                    done
+                </mat-icon>
+            </ng-template>    
+    </span>
+</div>

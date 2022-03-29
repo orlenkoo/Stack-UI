@@ -1,0 +1,95 @@
+.sidenav_container {
+    height: calc(100vh - 200px);
+    width: 130px;
+}
+
+.jim {
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.logo-icon {
+    display: flex;
+    height: 130px;
+    justify-content: center;
+    align-items: center;
+
+    > img {
+        height: 65px;
+    }
+}
+
+.img-container {
+    width: 69px;
+    height: 65px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:hover {
+        background-color: #1e2640;
+        color: white;
+    }
+
+    & > div,
+    & > img {
+        width: 30px;
+        height: 25px;
+    }
+}
+
+.nav-link {
+    background-color: transparent !important;
+    height: auto !important;
+    margin-top: 10px;
+
+    &.active .img-container {
+        background-color: #1e2640;
+        color: white;
+    }
+}
+
+.nav-list {
+    // INFo: margin bottom - icon size
+    height: calc(100vh - 35px - 36px);
+}
+
+.nav-item {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    margin-top: 10px;
+    align-items: center;
+    margin: 0 30px;
+}
+
+.toggle-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 10px;
+
+    > button {
+        border: 1px solid #1e2640;
+        border-radius: 5px;
+        height: 36px;
+        width: 36px;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+
+        > span {
+            line-height: 10px;
+        }
+    }
+}
+
+.nav-label {
+    margin-left: 12px;
+}
+
+:host ::ng-deep .mat-list-item-content {
+    padding: 0 !important;
+}

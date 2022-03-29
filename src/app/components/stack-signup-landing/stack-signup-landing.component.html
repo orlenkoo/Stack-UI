@@ -1,0 +1,36 @@
+<div>
+    <div class="sign-up-content rubik-font">
+        <div class="nav-label">
+            USE STACK FOR FREE
+        </div>
+        <div class="main-label">
+            Create an account
+        </div>
+        <div class="form-label">
+            Account Information
+        </div>
+        <div class="form roboto-font">
+            <app-stack-input id="email_id" 
+                type="text" 
+                label="Email" 
+                hint="Enter your email address ie. john.smith@gmail.com"
+                [validation]="validation.email_id"
+                (blurEvent)="handleBlur($event)"
+                [(ngModel)]="emailId" ngDefaultControl></app-stack-input>
+            <app-stack-input id="secretpass" 
+                type="password" 
+                label="Password" 
+                hint="Create a password for your account"
+                [validation]="validation.secret"
+                [(ngModel)]="secret" ngDefaultControl></app-stack-input>
+        </div>
+        <div class="buttonholder">
+            <app-stack-button type="primary" label="Create Account" (click)="createAccount()"></app-stack-button>
+            <app-stack-button 
+                type="google"
+                label="Sign Up With Google"
+                (click)="createAccount()"
+                imageSrc="/assets/imgs/google_logo.png"></app-stack-button>
+        </div>
+    </div>
+</div>

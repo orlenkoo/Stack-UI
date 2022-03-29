@@ -1,0 +1,4 @@
+<app-stack-card
+    [ngClass]="(stacks | slice:start:limit).length === 1 ? 'continer__stacks--solo':(stacks | slice:start:limit).length % 2 === 0 ?  'continer__stacks--even' : 'continer__stacks'"
+    *ngFor="let stack of stacks | slice:start:limit" [stack]="stack">
+</app-stack-card>
